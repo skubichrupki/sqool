@@ -1,6 +1,6 @@
 function EditUser() {
     return (
-        <p>Edit User</p>
+        <p>Update User - tbd</p>
     )
 }
 

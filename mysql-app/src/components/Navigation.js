@@ -8,13 +8,13 @@ function Navigation() {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/user/ListUser">List User</Link>
+                    <Link to="/user/ListUser">Select User</Link>
                 </li>
                 <li>
                     <Link to="/user/CreateUser">Create User</Link>
                 </li>
                 <li>
-                    <Link to="/user/1/EditUser">Edit User</Link>
+                    <Link to="/user/1/EditUser">Update User</Link>
                 </li>
             </ul>
         </nav>
