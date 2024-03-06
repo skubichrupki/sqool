@@ -4,20 +4,30 @@
   align-items: center;
 }
 
-form {
+/* header css */
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+header {
+  display: flex;
+}
+
+header div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  height: 100px;
-  width: 200px;
-  /* background-color: gray; */
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 400px;
   margin: 0px;
   padding: 0px;
 }
@@ -25,10 +35,20 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   color: black;
+  padding-right: 10px;
 }
 
 nav ul li a:hover {
   color: darkgray;
+}
+
+/* form css */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-wrapper {
@@ -69,9 +89,4 @@ button {
 button:hover {
   background-color: #ccc;
   color: #fff;
-}
-
-img {
-  width: 100px;
-  height: auto;
 }

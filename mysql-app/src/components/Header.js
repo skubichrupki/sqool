@@ -3,12 +3,14 @@ import {Link} from 'react-router-dom';
 function Header() {
     return (
         <header>
-            <img src="/logo.jpg" alt="logo" />
-            <p>SQooL - React JS, PHP, MySQL - CRUD Operations</p>
+                <img src="/logo.jpg" alt="logo" />
+            <div>
+
+                <p>SQooL - React JS, PHP, MySQL - CRUD Operations</p>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="">Home</Link>
                     </li>
                     <li>
                         <Link to="/user/ListUser">Select User</Link>
@@ -21,6 +23,8 @@ function Header() {
                     </li>
                 </ul>
             </nav>
+            </div>
+
         </header>
     );
 }
