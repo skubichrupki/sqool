@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Navigation from './components/Navigation';
+import Header from './components/Header';
 import ListUser from './components/ListUser';
 import CreateUser from './components/CreateUser';
 import EditUser from './components/EditUser';
@@ -8,10 +8,8 @@ import EditUser from './components/EditUser';
 function App() {
   return (
     <div className="App">
-      <p>React JS, PHP, MySQL - CRUD Operations</p>
-
       <BrowserRouter>
-        <Navigation />
+        <Header />
 
         <Routes>
           <Route path="/user/ListUser" element={<ListUser />}></Route>
