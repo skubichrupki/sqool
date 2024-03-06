@@ -70,3 +70,8 @@ button:hover {
   background-color: #ccc;
   color: #fff;
 }
+
+img {
+  width: 100px;
+  height: auto;
+}

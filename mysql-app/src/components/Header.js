@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 function Header() {
     return (
         <header>
+            <img src="/logo.jpg" alt="logo" />
             <p>SQooL - React JS, PHP, MySQL - CRUD Operations</p>
             <nav>
                 <ul>
