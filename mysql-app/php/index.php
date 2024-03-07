@@ -1,38 +1,60 @@
 <?php
-
     // allow data access from different ports
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
 
-    echo "sqool server on 127.0.0.1:80 is listening.." . "\r\n";
-
-    // encode json sent by react axios post
-    $input_values = json_encode(file_get_contents('php://input'));
-    echo "INPUT VALUES:" . $input_values . "\n";
-    
     // connect to mysql using mysqli
     $servername = "127.0.0.1";
     $username = "test_user";
     $password = "test_user";
     $database = "react";
     $conn = new mysqli($servername, $username, $password, $database);
-
     // connection check
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     else {
-        echo "Connected successfully";
+        echo "<p>Connected successfully</p>";
     }
 
-    // query check
-    // $sql = "SELECT * FROM user";
-    // // execute the query
-    // $result = $conn->query($sql);
-    //     while ($row = $result->fetch_assoc()) {
-    //         echo $row["user_id"].$row["name"].$row["email"]."\n";
-    //     }
+    // json sent by react axios post - json_decode() for array / json_encode() for json
+    $input_values = file_get_contents("php://input");
+    $array_input_values = json_decode($input_values, true);
+    $name = '';
+    $email = '';
+    // check if array from json exists
+    if (isset($array_input_values)) {
+        $name = $array_input_values["name"];
+        $email = $array_input_values["email"];
+    }
 
-    // connection close
+    echo "<p>". $name. "</p>";
+    echo "<p>". $email. "</p>";
+    echo "<p>". $input_values. "</p>";
+
+    // insert query to do: add sql injection prevention
+    $ins_query = "INSERT INTO user (name, email) VALUES (?, ?);"; 
+
+
+    if (!empty($name) && !empty($email)) {
+
+        // sql injection prevention
+        // Prepare query and bind the parameters to the statement in the query
+        $stmt = $conn->prepare($ins_query);
+        $stmt->bind_param("ss", $name, $email);
+    
+        // execute the query
+        if($stmt->execute()) {
+            echo "<p>ins_query execution success</p>";
+        }
+        else {
+            echo "<p>ins_query execution fail</p>";
+        }
+        $stmt->close();
+    }
+    else {
+        echo 'variable is empty';
+    }
+   
     $conn->close();
 ?>
