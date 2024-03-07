@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
 }
 
 /* header css */
@@ -9,16 +11,23 @@
 img {
   width: 100px;
   height: auto;
+  border: 1px solid #ccc;
 }
 
 header {
   display: flex;
 }
 
+header p {
+  border: 1px solid #ccc;
+}
+
 header div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding: 5px;
+  border: 1px solid #ccc;
 }
 
 nav ul {
@@ -30,12 +39,15 @@ nav ul {
   width: 400px;
   margin: 0px;
   padding: 0px;
+  border: 1px solid #ccc;
+
 }
 
 nav ul li a {
   text-decoration: none;
   color: black;
   padding-right: 10px;
+  border: 1px solid #ccc;
 }
 
 nav ul li a:hover {
@@ -49,6 +61,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid #ccc;
 }
 
 .input-wrapper {
@@ -56,6 +69,8 @@ form {
   flex-direction: column;
   width: 200px;
   padding: 10px;
+  border: 1px solid #ccc;
+
 }
 
 .input-wrapper label {

@@ -1,5 +1,6 @@
 import FormInput from "./FormInput";
 import { useState } from "react"
+import axios from 'axios';
 
 function ListUser() {
 
@@ -8,11 +9,10 @@ function ListUser() {
     const[input_values, setInputValues] = useState({});
     // const[mobileValue, setMobileValue] = useState("");
 
-    function handleSubmit (event) {
+    async function handleSubmit (event) {
         event.preventDefault();
-        console.log('submitted JSON data:')
         console.log(input_values);
-        // console.log(mobileValue);
+        axios.post('http://localhost:80/sqool/mysql-app/php/index.php', input_values);
     }
 
     const handleChange = (event) => {
