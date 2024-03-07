@@ -11,10 +11,10 @@
     $conn = new mysqli($servername, $username, $password, $database);
     // connection check
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("connection fail: " . $conn->connect_error);
     }
     else {
-        echo "<p>Connected successfully</p>";
+        echo "<p>connection success</p>";
     }
 
     // json sent by react axios post - json_decode() for array / json_encode() for json
@@ -27,10 +27,13 @@
         $name = $array_input_values["name"];
         $email = $array_input_values["email"];
     }
+    else {
+        echo '<p>json not existing</p>';
+    }
 
-    echo "<p>". $name. "</p>";
-    echo "<p>". $email. "</p>";
-    echo "<p>". $input_values. "</p>";
+    echo "<p>" . $name . "</p>";
+    echo "<p>" . $email . "</p>";
+    echo "<p>" . $input_values . "</p>";
 
     // insert query to do: add sql injection prevention
     $ins_query = "INSERT INTO user (name, email) VALUES (?, ?);"; 
@@ -53,7 +56,7 @@
         $stmt->close();
     }
     else {
-        echo 'variable is empty';
+        echo '<p>mandatory form value is empty</p>';
     }
    
     $conn->close();
