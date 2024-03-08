@@ -1,14 +1,20 @@
 mysql database structure
 
-    create database react
+    CREATE DATABASE react
+
+    CREATE USER 'test_user'@'localhost' IDENTIFIED BY 'test_user';
+    grant all PRIVILEGES on *.* to 'test_user'@'localhost';
+    flush privileges;
 
     CREATE TABLE `user` (
-     `user_id` int(11) NOT NULL AUTO_INCREMENT,
-     `name` varchar(50) NOT NULL,
-     `email` varchar(50) NOT NULL,
-     `created_on` datetime NOT NULL DEFAULT current_timestamp(),
-     `updated_on` datetime NOT NULL DEFAULT current_timestamp(),
-     PRIMARY KEY (`user_id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci	
+    `user_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(50) NOT NULL,
+    `created_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    `updated_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP())
+     ENGINE = InnoDB 
+     AUTO_INCREMENT = 5
+     DEFAULT CHARSET = utf8mb4 
+     COLLATE = utf8mb4_general_ci;
 
 
