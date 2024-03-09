@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
+  background-color: #fff;
+  color: #000;
 }
 
 /* header css */
@@ -45,8 +47,8 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: black;
   padding-right: 10px;
+  color: #000;
   /* border: 1px solid #ccc; */
 }
 

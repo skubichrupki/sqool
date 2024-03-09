@@ -1,11 +1,14 @@
 mysql database structure
 
+    -- create database
     CREATE DATABASE react
 
+    -- create user for application
     CREATE USER 'test_user'@'localhost' IDENTIFIED BY 'test_user';
     grant all PRIVILEGES on *.* to 'test_user'@'localhost';
     flush privileges;
 
+    -- create user table
     CREATE TABLE `user` (
     `user_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL,

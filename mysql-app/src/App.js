@@ -1,9 +1,10 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
-import ListUser from './components/ListUser';
+import SelectUser from './components/SelectUser';
 import CreateUser from './components/CreateUser';
-import EditUser from './components/EditUser';
+import UpdateUser from './components/UpdateUser';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -12,9 +13,10 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/user/ListUser" element={<ListUser />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/user/SelectUser" element={<SelectUser />}></Route>
           <Route path="/user/CreateUser" element={<CreateUser />}></Route>
-          <Route path="/user/:id/EditUser" element={<EditUser />}></Route>
+          <Route path="/user/:id/UpdateUser" element={<UpdateUser />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
