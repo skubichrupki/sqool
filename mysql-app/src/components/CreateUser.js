@@ -1,5 +1,6 @@
 import FormInput from "./FormInput";
-import { useState } from "react"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function CreateUser() {
@@ -9,10 +10,18 @@ function CreateUser() {
     const[input_values, setInputValues] = useState({});
     // const[mobileValue, setMobileValue] = useState("");
 
+    const navigate = useNavigate();
+
     async function handleSubmit (event) {
         event.preventDefault();
         console.log(input_values);
-        axios.post('http://localhost:80/sqool/mysql-app/php/index.php', input_values);
+        axios.post('http://localhost:80/sqool/mysql-app/php/index.php', input_values).then(function(response) {
+            // on success data return, everything in echo from php
+            console.log(response.data);
+            navigate('/user/SelectUser');
+        }, function () {
+            console.log('axios.post response error');
+        });
     }
 
     const handleChange = (event) => {
