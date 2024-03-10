@@ -13,9 +13,6 @@
     if ($conn->connect_error) {
         die("connection fail: " . $conn->connect_error);
     }
-    else {
-        echo "<p>connection success</p>";
-    }
 
     // POST or GET
     $method = $_SERVER['REQUEST_METHOD'];
@@ -52,7 +49,7 @@
             
                 // execute the query and check
                 if($stmt->execute()) {
-                    echo "<p>$query query execution success</p>";
+                    // echo "<p>$query query execution success</p>";
                 }
                 else {
                     echo "<p>$query query execution fail</p>";
@@ -67,11 +64,11 @@
     // GET
     else if ($method == "GET") {
         //select user query
-        $query = "SELECT name, email FROM user;";
+        $query = "SELECT user_id, name, email, created_on, updated_on FROM user;";
         $stmt = $conn->prepare($query);
 
         if($stmt->execute()) {
-            echo "<p>$query query execution success</p>";
+            // echo "<p>$query query execution success</p>";
             $query_result = $stmt->get_result();
             $rows = mysqli_fetch_all($query_result, MYSQLI_ASSOC);
             $json_rows = json_encode($rows);
