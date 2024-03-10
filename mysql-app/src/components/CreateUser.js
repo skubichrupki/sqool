@@ -11,11 +11,12 @@ function CreateUser() {
     // const[mobileValue, setMobileValue] = useState("");
 
     const navigate = useNavigate();
+    let action = '1';
 
     async function handleSubmit (event) {
         event.preventDefault();
         console.log(input_values);
-        axios.post('http://localhost:80/sqool/mysql-app/php/index.php', input_values).then(function(response) {
+        axios.post('http://localhost:80/sqool/mysql-app/php/index.php', {action, input_values}).then(function(response) {
             // on success data return, everything in echo from php
             console.log(response.data);
             navigate('/user/SelectUser');
