@@ -1,14 +1,17 @@
-mysql database structure
+## MariaDB DATABASE STRUCTURE ##
 
-    -- create database
-    CREATE DATABASE react
+### create database
 
-    -- create user for application
+    CREATE DATABASE react;
+
+### create user for application
+
     CREATE USER 'test_user'@'localhost' IDENTIFIED BY 'test_user';
-    grant all PRIVILEGES on *.* to 'test_user'@'localhost';
-    flush privileges;
+    GRANT ALL PRIVILEGES ON *.* TO 'test_user'@'localhost';
+    FLUSH PRIVILEGES;
 
-    -- create user table
+### create user table
+
     CREATE TABLE `user` (
     `user_id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL,

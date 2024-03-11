@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: #fff;
   color: #000;
+  width: 100vw;
 }
 
 /* header css */
@@ -13,15 +14,10 @@
 img {
   width: 100px;
   height: auto;
-  /* border: 1px solid #ccc; */
 }
 
 header {
   display: flex;
-}
-
-header p {
-  /* border: 1px solid #ccc; */
 }
 
 header div {
@@ -29,7 +25,28 @@ header div {
   flex-direction: column;
   align-items: flex-start;
   padding: 5px;
-  /* border: 1px solid #ccc; */
+}
+
+.content {
+  min-width: 1000px;
+}
+
+/* table */
+
+table {
+  border: 1px solid #ccc;
+}
+table th {
+  font-weight: normal;
+  padding: 5px;
+}
+table tr {
+  text-align: left;  
+}
+table tr td {
+  min-width: auto;
+  min-width: 80px;
+  padding: 5px;
 }
 
 nav ul {
@@ -41,7 +58,6 @@ nav ul {
   width: 400px;
   margin: 0px;
   padding: 0px;
-  /* border: 1px solid #ccc; */
 
 }
 
@@ -49,7 +65,6 @@ nav ul li a {
   text-decoration: none;
   padding-right: 10px;
   color: #000;
-  /* border: 1px solid #ccc; */
 }
 
 nav ul li a:hover {
@@ -63,7 +78,6 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid #ccc; */
 }
 
 .input-wrapper {
@@ -71,8 +85,6 @@ form {
   flex-direction: column;
   width: 200px;
   padding: 10px;
-  /* border: 1px solid #ccc; */
-
 }
 
 .input-wrapper label {
@@ -93,13 +105,13 @@ form {
 
 button {
   padding: 5px;
-  width: 200px;
+  min-width: 100px;
+  width: auto;
   border-radius: 5px;
   border: 1px solid #aaa;
   cursor: pointer;
   background-color: #fff;
   font-size: 16px;
-  margin: 5px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 

@@ -1,8 +1,6 @@
-![alt text](./mysql-app/public/image.png)
-
 ### launch project locally:
 
-- requirements: git, node.js, xampp (apache, MySQL)
+- requirements: git, node.js, xampp
 - clone https://github.com/skubichrupki/sqool to xampp/htdocs (lampp/htdocs on linux)
   
   inside sqool/mysql-app directory:
@@ -10,8 +8,10 @@
   - npm install (react dependencies that are too big for github)
   - npm install axios (library for handling data transfer)
   - npm start (start node.js server on localhost:3000)
-  - in xampp start apache server on localhost:80 and mysql (mariadb) server on localhost:3306 
-  - database structure is on ./mysql-app/db/readme.md, execute it in sql tab on phpmyadmin for exact database
+  - in xampp:
+    - start apache server on localhost:81
+    - start mysql (mariadb) server on localhost:3306
+  - database creation scripts are in ./mysql-app/db/readme.md, execute it in sql to copy the database
 
 # SQooL
 SQooL is a project aimed at exploring and comparing the integration of two popular SQL database management systems, Microsoft SQL Server and MySQL, within web applications. 

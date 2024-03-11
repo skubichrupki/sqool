@@ -1,7 +1,7 @@
 function UpdateUser() {
     return (
-        <div>
-            Update User - tbd
+        <div >
+            <p>Update User - to be done</p>
         </div>
     )
 }

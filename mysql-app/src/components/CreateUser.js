@@ -38,12 +38,16 @@ function CreateUser() {
     // }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <FormInput label="Name" type="text" name="name" onChange={handleChange} className="input-wrapper"/>
-            <FormInput label="Email" type="text" name="email" onChange={handleChange} className="input-wrapper"/>
-            {/* <FormInput label="Mobile" type="text" name="mobile" value={mobileValue} onChange={handleChangeMobile} className="input-wrapper"/> */}
-            <button type="submit">Submit</button>
-        </form>
+        <div >
+            <p>Create User</p>
+            <form onSubmit={handleSubmit}>
+                <FormInput label="Name" type="text" name="name" onChange={handleChange} className="input-wrapper"/>
+                <FormInput label="Email" type="text" name="email" onChange={handleChange} className="input-wrapper"/>
+                {/* <FormInput label="Mobile" type="text" name="mobile" value={mobileValue} onChange={handleChangeMobile} className="input-wrapper"/> */}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
     )
 }
 

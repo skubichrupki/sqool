@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function SelectUser() {
 
     // change user list state
-    const[user, setUser] = useState([]);
+    const[userArray, setUserArray] = useState([]);
 
-    // to do: useEffect function for get method
-    // include get method in php script
     useEffect(function() {
         getUser();
     }, []);
@@ -17,14 +16,15 @@ function SelectUser() {
         axios.get('http://localhost:81/sqool/mysql-app/php/index.php').then(function(response) {
             console.log('response data:');
             console.log(response.data);
-            setUser(response.data);
+            setUserArray(response.data);
         }, function() {
             console.log('axios.get response error');
         })
     }
 
     return (
-        <div>
+        <div >
+            <p>User List</p>
             <table>
                 <thead>
                     <tr>
@@ -36,16 +36,21 @@ function SelectUser() {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* to do: read about .map() function  */}
-                    {user.map(user => (
+                    {/* for each user element in array userArray do function inside map */}
+                    {userArray.map(user => (
                         <tr key={user.user_id}>
                             <td>{user.user_id}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.created_on}</td>
                             <td>{user.updated_on}</td>
-
-
+                            <td>
+                                <Link to={`/user/UpdateUser/${user.user_id}`}>
+                                    <button className="tableButton">
+                                        Update User
+                                    </button>
+                                </Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
