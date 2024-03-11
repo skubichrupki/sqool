@@ -16,6 +16,7 @@
 
     // POST or GET
     $method = $_SERVER['REQUEST_METHOD'];
+    $url = $_SERVER['REQUEST_URI'];
 
     // POST
     if ($method == "POST") {
@@ -39,36 +40,31 @@
             echo '<p>json not existing</p>';
         }
         if ($action == '1') {
-            // insert user query
+
             $query = "INSERT INTO user (name, email) VALUES (?, ?);"; 
 
-            if (!empty($name) && !empty($email)) {
-                // sql injection prevention
-                $stmt = $conn->prepare($query);
-                $stmt->bind_param("ss", $name, $email);
-            
-                // execute the query and check
-                if($stmt->execute()) {
-                    // echo "<p>$query query execution success</p>";
-                }
-                else {
-                    echo "<p>$query query execution fail</p>";
-                }
-                $stmt->close();
+            // sql injection prevention
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ss", $name, $email);
+        
+            if($stmt->execute()) {
             }
             else {
-                echo '<p>mandatory form value is empty</p>';
+                echo "<p>$query query execution fail</p>";
             }
+            $stmt->close();
         }
     }
     // GET
     else if ($method == "GET") {
-        //select user query
+
         $query = "SELECT user_id, name, email, created_on, updated_on FROM user;";
         $stmt = $conn->prepare($query);
 
+        // if in get url: user_id = x
+        // add "WHERE user_id = x" to the query
+
         if($stmt->execute()) {
-            // echo "<p>$query query execution success</p>";
             $query_result = $stmt->get_result();
             $rows = mysqli_fetch_all($query_result, MYSQLI_ASSOC);
             $json_rows = json_encode($rows);
