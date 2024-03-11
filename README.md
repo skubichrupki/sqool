@@ -1,3 +1,5 @@
+![alt text](mysql-app/public/screenshot.png)
+
 # SQooL
 SQooL is a project aimed at exploring and comparing the integration of two popular SQL database management systems, Microsoft SQL Server and MySQL, within web applications.
 The second goal of this thesis is to explore why using SQL databases is better than spreadsheets for automotive companies. 
@@ -14,7 +16,7 @@ The second goal of this thesis is to explore why using SQL databases is better t
   - Dbeaver
 
 ## Lore:
-SQooL is a project born out of the recognition that transitioning from Spreadsheets to SQL databases offers significant advantages for companies in terms of data management and data analysis/
+SQooL is a project born out of the recognition that transitioning from Spreadsheets to SQL databases offers significant advantages for companies in terms of data management and data analysis
 <br>
 As data volumes grow and business requirements evolve, Excel's shortcomings become increasingly apparent. Issues such as version control, data integrity, limited collaboration capabilities, and performance limitations are worsening productivity and decision-making process. 
 <br>
