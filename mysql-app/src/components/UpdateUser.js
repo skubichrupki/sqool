@@ -33,9 +33,9 @@ function UpdateUser() {
     }
 
     return (
-        <div >
-            <p>Update User with ID {user_id}</p>
-            <form onSubmit={handleSubmit}>
+        <div>
+            <form className='boxxy' onSubmit={handleSubmit}>
+            Update User ID: {user_id}
                 <FormInput label="Name" type="text" name="name" onChange={handleChange} value={input_values['name']} className="input-wrapper"/>
                 <FormInput label="Email" type="text" name="email" onChange={handleChange} value={input_values['email']} className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>

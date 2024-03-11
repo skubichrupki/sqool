@@ -1,6 +1,6 @@
 const Home = () => {
     return(
-        <div>
+        <div className="boxxy">
             Welcome to SQooL
         </div>
     )

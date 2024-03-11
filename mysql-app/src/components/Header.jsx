@@ -3,13 +3,16 @@ import {Link} from 'react-router-dom';
 function Header() {
     return (
         <header>
+            <div>
                 <Link to="/">
                     <img src="/logo2.jpg" alt="logo" />
                 </Link>
+                <p className='boxxy'>SQooL - React.js, PHP, MariaDB</p>
+            </div>
+                
             <div>
-                <p>SQooL - React.js, PHP, MariaDB</p>
                 <nav>
-                    <ul>
+                    <ul className='boxxy'>
                         <li>
                             <Link to="/">
                                 Home

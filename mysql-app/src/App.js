@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import SelectUser from './components/SelectUser';
 import CreateUser from './components/CreateUser';
 import UpdateUser from './components/UpdateUser';
@@ -18,7 +19,10 @@ function App() {
           <Route path="/CreateUser" element={<CreateUser />}></Route>
           <Route path="/UpdateUser/:user_id" element={<UpdateUser />}></Route>
         </Routes>
+
+        {/* <Footer /> */}
       </BrowserRouter>
+
     </div>
   );
 }
