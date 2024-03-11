@@ -8,7 +8,8 @@
     $username = "test_user";
     $password = "test_user";
     $database = "react";
-    $conn = new mysqli($servername, $username, $password, $database);
+    $port = 3306;
+    $conn = new mysqli($servername, $username, $password, $database, $port);
     // connection check
     if ($conn->connect_error) {
         die("connection fail: " . $conn->connect_error);
@@ -16,7 +17,6 @@
 
     // POST or GET
     $method = $_SERVER['REQUEST_METHOD'];
-    $url = $_SERVER['REQUEST_URI'];
 
     // POST
     if ($method == "POST") {
@@ -45,12 +45,12 @@
 
             // sql injection prevention
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ss", $name, $email);
+            $stmt->bind_param("ss", $name, $email); // ss for string string
         
             if($stmt->execute()) {
             }
             else {
-                echo "<p>$query query execution fail</p>";
+                echo "<p>$query fail</p>";
             }
             $stmt->close();
         }
@@ -58,12 +58,19 @@
     // GET
     else if ($method == "GET") {
 
-        $query = "SELECT user_id, name, email, created_on, updated_on FROM user;";
-        $stmt = $conn->prepare($query);
-
-        // if in get url: user_id = x
-        // add "WHERE user_id = x" to the query
-
+        $query = "SELECT * FROM user";
+        
+        // if in get url: user_id=x appears, add WHERE to the query
+        if (isset($_GET['user_id'])) {
+            $user_id = $_GET['user_id'];
+            $query .= " WHERE user_id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $user_id); // i for int
+        }
+        else {
+            $stmt = $conn->prepare($query);
+        }
+        // execute query, return data in json format
         if($stmt->execute()) {
             $query_result = $stmt->get_result();
             $rows = mysqli_fetch_all($query_result, MYSQLI_ASSOC);
@@ -71,10 +78,9 @@
             echo $json_rows;
         }
         else {
-            echo "<p>$query query execution fail</p>";
+            echo "<p>$query fail</p>";
         }
         $stmt->close();
     }
-   
     $conn->close();
 ?>

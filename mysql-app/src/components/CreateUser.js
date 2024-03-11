@@ -2,6 +2,7 @@ import FormInput from "./FormInput";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Button from "./Button";
 
 function CreateUser() {
 
@@ -19,7 +20,7 @@ function CreateUser() {
         axios.post('http://localhost:81/sqool/mysql-app/php/index.php', {action, input_values}).then(function(response) {
             // on success data return, everything in echo from php
             // console.log(response.data);
-            navigate('/user/SelectUser');
+            navigate('/SelectUser');
         }, function () {
             console.log('axios.post response error');
         });
@@ -38,13 +39,13 @@ function CreateUser() {
     // }
 
     return (
-        <div >
+        <div>
             <p>Create User</p>
             <form onSubmit={handleSubmit}>
                 <FormInput label="Name" type="text" name="name" onChange={handleChange} className="input-wrapper"/>
                 <FormInput label="Email" type="text" name="email" onChange={handleChange} className="input-wrapper"/>
                 {/* <FormInput label="Mobile" type="text" name="mobile" value={mobileValue} onChange={handleChangeMobile} className="input-wrapper"/> */}
-                <button type="submit">Submit</button>
+                <Button type="submit" text="Submit"/>
             </form>
         </div>
         

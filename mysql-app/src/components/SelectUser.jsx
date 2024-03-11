@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 function SelectUser() {
 
@@ -14,8 +15,6 @@ function SelectUser() {
     // get the reponse data
     function getUser() {
         axios.get('http://localhost:81/sqool/mysql-app/php/index.php').then(function(response) {
-            console.log('response data:');
-            console.log(response.data);
             setUserArray(response.data);
         }, function() {
             console.log('axios.get response error');
@@ -33,6 +32,7 @@ function SelectUser() {
                         <th>Email</th>
                         <th>Created On</th>
                         <th>Updated On</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,10 +45,8 @@ function SelectUser() {
                             <td>{user.created_on}</td>
                             <td>{user.updated_on}</td>
                             <td>
-                                <Link to={`/user/UpdateUser/${user.user_id}`}>
-                                    <button className="tableButton">
-                                        Update User
-                                    </button>
+                                <Link to={`/UpdateUser/${user.user_id}`}>
+                                    <Button text="Update"/>
                                 </Link>
                             </td>
                         </tr>

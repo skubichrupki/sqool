@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #fff;
-  color: #000;
+  background-color: #605e5f;
+  color: #fff;
   width: 100vw;
 }
 
@@ -34,20 +34,30 @@ header div {
 /* table */
 
 table {
-  border: 1px solid #ccc;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  background-color: #303030; /* Background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
 }
+
 table th {
-  font-weight: normal;
-  padding: 5px;
+  font-weight: bold;
+  padding: 7px;
+  background-color: #252525; /* Header background color */
 }
-table tr {
-  text-align: left;  
+
+table td {
+  padding: 7px;
+  border-top: 1px solid #e0e0e0; /* Light border color */
 }
-table tr td {
-  min-width: auto;
-  min-width: 80px;
-  padding: 5px;
+
+table tr:last-child td {
+  border-bottom: none; /* Remove bottom border for last row */
 }
+
+/* nav */
 
 nav ul {
   list-style: none;
@@ -64,11 +74,12 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   padding-right: 10px;
-  color: #000;
+  color: #fff;
 }
 
 nav ul li a:hover {
-  color: darkgray;
+  color: #a9a9a9;
+  
 }
 
 /* form css */
@@ -77,7 +88,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .input-wrapper {
@@ -112,10 +123,10 @@ button {
   cursor: pointer;
   background-color: #fff;
   font-size: 16px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.1s ease, color 0.1s ease;
 }
 
 button:hover {
-  background-color: #ccc;
+  background-color: #a9a9a9;
   color: #fff;
 }

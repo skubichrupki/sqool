@@ -4,7 +4,7 @@ function Header() {
     return (
         <header>
                 <Link to="/">
-                    <img src="/logo.jpg" alt="logo" />
+                    <img src="/logo2.jpg" alt="logo" />
                 </Link>
             <div>
                 <p>SQooL - React.js, PHP, MariaDB</p>
@@ -16,17 +16,17 @@ function Header() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/user/SelectUser">
+                            <Link to="/SelectUser">
                                 List User
                             </Link>
                         </li>
                         <li>
-                            <Link to="/user/CreateUser">
+                            <Link to="/CreateUser">
                                 Create User
                             </Link>
                         </li>
                         <li>
-                            <Link to="/user/UpdateUser/1">
+                            <Link to="/UpdateUser">
                                 Update User
                             </Link>
                         </li>
