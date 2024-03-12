@@ -10,18 +10,23 @@ function UpdateUser() {
     const {user_id} = useParams();
     const[input_values, setInputValues] = useState({name: '', email:''});
     useEffect(getUser, [user_id]);
-
+    let action = '2';
 
     function getUser() {
         axios.get(`http://localhost:81/sqool/mysql-app/php/index.php?user_id=${user_id}`).then((response) => {
             console.log(response.data[0]);
             setInputValues(response.data[0]);
-        })
+        });
     }
     // like ready() or document load
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        // console.log(input_values);
+        axios.post('http://localhost:81/sqool/mysql-app/php/index.php', {action, input_values}).then((response) => {
+            console.log(response);
+        });
+
     }
 
     const handleChange = (event) => {
@@ -35,7 +40,7 @@ function UpdateUser() {
     return (
         <div>
             <form className='boxxy' onSubmit={handleSubmit}>
-            Update User ID: {user_id}
+                Update User ID: {user_id}
                 <FormInput label="Name" type="text" name="name" onChange={handleChange} value={input_values['name']} className="input-wrapper"/>
                 <FormInput label="Email" type="text" name="email" onChange={handleChange} value={input_values['email']} className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>

@@ -33,8 +33,6 @@
             $array_input_values = $array_data["input_values"]; // object with key: input_values
             $name = $array_input_values["name"];
             $email = $array_input_values["email"];
-            echo $action;
-            echo $email;
         }
         else {
             echo '<p>json not existing</p>';
@@ -46,13 +44,17 @@
             // sql injection prevention
             $stmt = $conn->prepare($query);
             $stmt->bind_param("ss", $name, $email); // ss for string string
-        
             if($stmt->execute()) {
             }
             else {
                 echo "<p>$query fail</p>";
             }
             $stmt->close();
+        }
+        else if ($action == '2') {
+            // to do - figure out the update query
+            // also user_id in the url?
+            echo 'record updated';
         }
     }
     // GET

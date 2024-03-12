@@ -14,6 +14,12 @@
 img {
   width: 100px;
   height: auto;
+  transition: transform 0.3s ease;
+
+}
+
+img:hover {
+  transform: scale(1.05) rotate(-5deg);
 }
 
 header {
@@ -25,7 +31,7 @@ header div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .boxxy {
@@ -120,6 +126,13 @@ form {
 .input-wrapper input:focus {
   outline: none;
   border-color: #ccc;
+}
+
+.input-wrapper select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  width: 175px;
 }
 
 button {

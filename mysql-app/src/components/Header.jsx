@@ -9,7 +9,6 @@ function Header() {
                 </Link>
                 <p className='boxxy'>SQooL - React.js, PHP, MariaDB</p>
             </div>
-                
             <div>
                 <nav>
                     <ul className='boxxy'>

@@ -1,4 +1,5 @@
 import FormInput from "./FormInput";
+import FormSelect from "./FormSelect";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -9,7 +10,6 @@ function CreateUser() {
     // const [current state, function(new state) to update state] = useState("");
     // so you change mobileValue to value of argument sent to setMobileValue function
     const[input_values, setInputValues] = useState({});
-    // const[mobileValue, setMobileValue] = useState("");
 
     const navigate = useNavigate();
     let action = '1';
@@ -33,11 +33,6 @@ function CreateUser() {
         setInputValues(object_values => ({...object_values, [input_name]: input_value}));
     }
 
-    // const handleChangeMobile = (event) => {
-    //     console.log(event.target.value);
-    //     setMobileValue(event.target.value);
-    // }
-
     return (
         <div>
             <form className="boxxy" onSubmit={handleSubmit}>
@@ -45,6 +40,7 @@ function CreateUser() {
                 <FormInput label="Name" type="text" name="name" onChange={handleChange} className="input-wrapper"/>
                 <FormInput label="Email" type="text" name="email" onChange={handleChange} className="input-wrapper"/>
                 {/* <FormInput label="Mobile" type="text" name="mobile" value={mobileValue} onChange={handleChangeMobile} className="input-wrapper"/> */}
+                <FormSelect label="Status" value="default" className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>
             </form>
         </div>
