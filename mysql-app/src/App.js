@@ -5,6 +5,7 @@ import SelectUser from './components/SelectUser';
 import CreateUser from './components/CreateUser';
 import UpdateUser from './components/UpdateUser';
 import Home from './components/Home';
+import BackendTest from './components/BackendTest';
 // import Footer from './components/Footer';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/SelectUser" element={<SelectUser />}></Route>
           <Route path="/CreateUser" element={<CreateUser />}></Route>
           <Route path="/UpdateUser/:user_id" element={<UpdateUser />}></Route>
+          <Route path="/BackendTest" element={<BackendTest />}></Route>
         </Routes>
 
         {/* <Footer /> */}
