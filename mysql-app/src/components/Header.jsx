@@ -2,12 +2,11 @@ import {Link} from 'react-router-dom';
 
 function Header() {
     return (
-        <header>
+        <header className='content'>
             <div>
                 <Link to="/">
                     <img src="/logo2.jpg" alt="logo" />
                 </Link>
-                <p className='boxxy'>SQooL - React.js, PHP, MariaDB</p>
             </div>
             <div>
                 <nav>
@@ -27,15 +26,14 @@ function Header() {
                                 Create User
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/UpdateUser">
+                        {/* <li>
+                            <Link to="/UpdateUser/1">
                                 Update User
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>
-
         </header>
     );
 }

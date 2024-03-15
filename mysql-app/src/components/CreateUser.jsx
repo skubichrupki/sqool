@@ -37,10 +37,10 @@ function CreateUser() {
         <div>
             <form className="boxxy" onSubmit={handleSubmit}>
                 Create User
-                <FormInput label="Name" type="text" name="name" onChange={handleChange} className="input-wrapper"/>
-                <FormInput label="Email" type="text" name="email" onChange={handleChange} className="input-wrapper"/>
+                <FormInput label="Name" type="text" name="name" onChange={handleChange} isRequired={true} className="input-wrapper"/>
+                <FormInput label="Email" type="text" name="email" onChange={handleChange} isRequired={true} className="input-wrapper"/>
                 {/* <FormInput label="Mobile" type="text" name="mobile" value={mobileValue} onChange={handleChangeMobile} className="input-wrapper"/> */}
-                <FormSelect label="Status" value="default" className="input-wrapper"/>
+                <FormSelect label="Status" value="default" className="input-wrapper" isRequired={true}/>
                 <Button type="submit" text="Submit"/>
             </form>
         </div>

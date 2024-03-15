@@ -22,8 +22,7 @@ function SelectUser() {
     }
 
     return (
-        <div >
-            <p>User List</p>
+        <div className="content">
             <table>
                 <thead>
                     <tr>

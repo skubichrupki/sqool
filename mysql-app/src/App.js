@@ -1,11 +1,11 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import SelectUser from './components/SelectUser';
 import CreateUser from './components/CreateUser';
 import UpdateUser from './components/UpdateUser';
 import Home from './components/Home';
+// import Footer from './components/Footer';
 
 function App() {
   return (

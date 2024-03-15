@@ -6,16 +6,18 @@
   height: 100vh;
   background-color: #605e5f;
   color: #fff;
-  width: 100vw;
+}
+
+.content {
+  max-width: 800px;
+  min-width: 400px;
 }
 
 /* header css */
-
 img {
   width: 100px;
   height: auto;
   transition: transform 0.3s ease;
-
 }
 
 img:hover {
@@ -31,19 +33,15 @@ header div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .boxxy {
   background-color: #252525;
   border-radius: 8px;
   padding: 10px;
-  margin-top: 10px;
+  margin: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-}
-
-.content {
-  min-width: 1000px;
 }
 
 /* table */
@@ -55,21 +53,19 @@ table {
   overflow: hidden; /* Hide overflow */
   background-color: #303030; /* Background color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  margin-top: 10px;
 }
 
 table th {
-  font-weight: bold;
-  padding: 7px;
+  font-weight: normal;
+  padding: 5px;
   background-color: #252525; /* Header background color */
+  text-align: left;
 }
 
 table td {
-  padding: 7px;
-  border-top: 1px solid #e0e0e0; /* Light border color */
-}
-
-table tr:last-child td {
-  border-bottom: none; /* Remove bottom border for last row */
+  padding: 5px;
+  border-top: 1px solid #fff; /* Light border color */
 }
 
 /* nav */
@@ -78,26 +74,20 @@ nav ul {
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-around;
   width: 400px;
-  margin: 0px;
-  padding: 0px;
 }
 
 nav ul li a {
   text-decoration: none;
-  padding-right: 10px;
   color: #fff;
 }
 
 nav ul li a:hover {
-  color: #a9a9a9;
-  
+  color: #85c4ff;
 }
 
 /* form css */
-
 form {
   display: flex;
   flex-direction: column;
@@ -106,21 +96,17 @@ form {
 }
 
 .input-wrapper {
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 200px;
   padding: 10px;
-}
-
-.input-wrapper label {
-  font-size: 16px;
-  margin-right: 70%;
 }
 
 .input-wrapper input {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #aaa;
+  width: 170px;
 }
 
 .input-wrapper input:focus {
@@ -132,7 +118,7 @@ form {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #aaa;
-  width: 175px;
+  width: 180px;
 }
 
 button {
@@ -144,10 +130,12 @@ button {
   cursor: pointer;
   background-color: #fff;
   font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
   transition: background-color 0.1s ease, color 0.1s ease;
 }
 
 button:hover {
-  background-color: #a9a9a9;
+  background-color: #85c4ff;
+  border: 1px solid #85c4ff;
   color: #fff;
 }
