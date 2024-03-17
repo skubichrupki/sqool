@@ -1,5 +1,3 @@
-![alt text](mysql-app/public/screenshot.png)
-
 # SQooL
 SQooL is a project aimed at exploring and comparing the integration of two popular SQL database management systems, Microsoft SQL Server and MySQL, within web applications.
 The second goal of this thesis is to explore why using SQL databases is better than spreadsheets for automotive companies. 
@@ -8,11 +6,10 @@ The second goal of this thesis is to explore why using SQL databases is better t
 
 - Tech Stack:
   - Frontend: React.js
-  - Backend: PHP
-  - Database: MySQL (MariaDB)
+  - Backend: Express.js
+  - Database: MySQL
 - Software:
   - VS Code
-  - XAMPP
   - Dbeaver
 
 ## Lore:
