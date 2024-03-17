@@ -1,24 +1,73 @@
 const express = require('express');
+const cors = require('cors');
+const mysql = require('mysql2');
+
 const app = express();
 const port = 5000;
-const cors = require('cors');
 
 app.use(cors());
+app.use(express.json());
 app.listen(port, () => {
-    console.log(`express js is listening on port ${port}`);
+    console.log(`express.js server is listening on port ${port}`);
 })
 
-// req - request, res - response
-// / - http://localhost:5000/
+// config connection to mysql
+const connection = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'test_user',
+    password: 'test_user',
+    database: 'react',
+    port: '3306'
+})
+
+// check connection to mysql
+connection.connect((err) => {
+    let message = ''
+    err ? message = 'fail' + err : message = 'success';
+    console.log(`connection ${message}`);
+});
+
+// / = http://localhost:5000/
+// app.method(path, handler())
 app.get('/', (req, res) => {
-    res.send(`port:${port}`);
+    res.send(`got a GET request!`);
+    console.log('got a GET request');
+    const query = 'select * from user';
 })
 
-// connect to mysql
+app.post('/', (req, res) => {
+    console.log('got a POST request');
+    console.log(req.body);
+    // get json values from post request body
+    //const {name, email} = req.body;
+    const name = req.body.name;
+    const email = req.body.email;
+    const query = `INSERT INTO user (name, email) VALUES (?,?)`;
+    const values = [name, email];
+    // execute query
+    connection.query(query, values, (err, results) => {
+        if (err) {
+            console.log(err)
+            res.send('data insert fail');
+        }
+        else {
+            console.log(results);
+            res.send('data insert success');
+        }
+    });
+});
 
-// post/get/put
+app.put('/', (req, res) => {
+    res.send('got a put request!');
+    console.log('got a PUT request');
+    const query = '';
+})
 
-// post/put
+app.delete('/', (req, res) => {
+    res.send('got a DELETE request!');
+    console.log('got a DELETE request');
+    const query = '';
+})
 
-// get
+
 

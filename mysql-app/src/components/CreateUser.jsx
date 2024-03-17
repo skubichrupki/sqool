@@ -12,15 +12,13 @@ function CreateUser() {
     const[input_values, setInputValues] = useState({});
 
     const navigate = useNavigate();
-    let action = '1';
 
     async function handleSubmit (event) {
         event.preventDefault();
         console.log(input_values);
-        axios.post('http://localhost:81/sqool/mysql-app/php/index.php', {action, input_values}).then(function(response) {
-            // on success data return, everything in echo from php
-            // console.log(response.data);
-            navigate('/SelectUser');
+        axios.post('http://localhost:5000', input_values).then(function(response) {
+            // navigate('/SelectUser');
+            console.log(response.data);
         }, function () {
             console.log('axios.post response error');
         });

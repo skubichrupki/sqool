@@ -1,19 +1,24 @@
 ### launch project locally:
 
-- requirements: git, node.js, xampp
-- clone https://github.com/skubichrupki/sqool to xampp/htdocs (lampp/htdocs on linux)
+- requirements: git, node.js, mysql
+- clone https://github.com/skubichrupki/sqool
   
-  inside sqool/mysql-app directory:
-
+1. install dependencies
   - npm install (react dependencies that are too big for github)
   - npm install axios (library for handling data transfer)
-  - npm start (start node.js server on dev mode on localhost:3000)
-  - in xampp:
-    - start apache server on localhost:81
-    - start mysql (mariadb) server on localhost:3306
+  - cd to backend
+  - npm init
+  - npm install express
+  - npm install mysql
+2. run frontend server
+  - cd to mysql-app
+  - npm start (start node.js server on localhost:3000)
+3. run backend server
+  - cd backend
+  - node index.js (start node.js server on localhost:5000)
+4. run database server
+  - start mysql server on localhost:3306
   - database creation scripts are in ./mysql-app/db/readme.md, execute it in sql to copy the database
 
-  you can also run
-  - npm test (watch mode)
-  - npm run build (builds the app for production to the `build` folder)
+
   

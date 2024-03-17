@@ -1,4 +1,4 @@
-## MariaDB DATABASE STRUCTURE ##
+## MySQL DATABASE STRUCTURE ##
 
 ### create database
 
@@ -18,9 +18,5 @@
     `email` VARCHAR(50) NOT NULL,
     `created_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     `updated_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP())
-     ENGINE = InnoDB 
-     AUTO_INCREMENT = 5
-     DEFAULT CHARSET = utf8mb4 
-     COLLATE = utf8mb4_general_ci;
 
 
