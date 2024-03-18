@@ -9,7 +9,7 @@
   - cd to backend
   - npm init
   - npm install express
-  - npm install mysql
+  - npm install mysql2
 2. run frontend server
   - cd to mysql-app
   - npm start (start node.js server on localhost:3000)

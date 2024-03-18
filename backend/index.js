@@ -30,9 +30,35 @@ connection.connect((err) => {
 // / = http://localhost:5000/
 // app.method(path, handler())
 app.get('/', (req, res) => {
-    res.send(`got a GET request!`);
     console.log('got a GET request');
-    const query = 'select * from user';
+    const query = 'SELECT * FROM user';
+    // check if user_id exists in request body
+    if (req.body.user_id) {
+        query += ' WHERE user_id = ?'
+        const values = [req.body.user_id]
+        connection.query(query, (err, results) => {
+            if (err) {
+                console.log(err)
+                res.send('data insert fail: ' + err);
+            }
+            else {
+                console.log(results);
+                res.json(results);
+            }
+        })
+    }
+    else {
+        connection.query(query, (err, results) => {
+            if (err) {
+                console.log(err)
+                res.send('data insert fail: ' + err);
+            }
+            else {
+                console.log(results);
+                res.json(results);
+            }
+        })
+    }
 })
 
 app.post('/', (req, res) => {
@@ -48,7 +74,7 @@ app.post('/', (req, res) => {
     connection.query(query, values, (err, results) => {
         if (err) {
             console.log(err)
-            res.send('data insert fail');
+            res.send('data insert fail: ' + err);
         }
         else {
             console.log(results);

@@ -14,7 +14,7 @@ function SelectUser() {
 
     // get the reponse data
     function getUser() {
-        axios.get('http://localhost:81/sqool/mysql-app/php/index.php').then(function(response) {
+        axios.get('http://localhost:5000').then(function(response) {
             setUserArray(response.data);
         }, function() {
             console.log('axios.get response error');
