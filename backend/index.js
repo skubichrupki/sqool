@@ -27,15 +27,26 @@ connection.connect((err) => {
     console.log(`connection ${message}`);
 });
 
+const select_query = `
+SELECT user_id
+,name
+,email
+,s.description as status
+,date_format(created_on, '%e %M %Y, %H:%i') as created_on
+,date_format(updated_on, '%e %M %Y, %H:%i') as updated_on 
+FROM react.user as u 
+INNER JOIN react.status s 
+ON s.status_id = u.status_id`;
+
 // / = http://localhost:5000/
 // app.method(path, handler())
 app.get('/', (req, res) => {
     console.log('got a GET request');
     console.log(req.query);
-    let query = 'SELECT * FROM user';
+    let query = select_query;
     // check if user_id exists in request header?
     if (req.query.user_id) {
-        query += ' WHERE user_id = ?'
+        query += ` WHERE user_id = ? ORDER BY user_id desc`
         const user_id = req.query.user_id
         connection.query(query, user_id, (err, results) => {
             if (err) {
@@ -49,6 +60,7 @@ app.get('/', (req, res) => {
         })
     }
     else {
+        query += ` ORDER BY user_id desc`
         connection.query(query, (err, results) => {
             if (err) {
                 console.log(err)
@@ -62,6 +74,16 @@ app.get('/', (req, res) => {
     }
 })
 
+// get data from tables for selects in form
+app.get('/table/:tableName', (req, res) => {
+    const tableName = req.params.tableName;
+    console.log('got a GET request for table: ' + tableName);
+    const query = `SELECT * FROM ${tableName}`
+    connection.query(query, (err, results) => {
+        res.json(results)
+    })
+})
+
 app.post('/', (req, res) => {
     console.log('got a POST request');
     console.log(req.body);
@@ -69,8 +91,9 @@ app.post('/', (req, res) => {
     //const {name, email} = req.body;
     const name = req.body.name;
     const email = req.body.email;
-    const query = `INSERT INTO user (name, email) VALUES (?,?)`;
-    const values = [name, email];
+    const status_id = req.body.status_id;
+    const query = `INSERT INTO user (name, email, status_id) VALUES (?,?,?)`;
+    const values = [name, email, status_id];
     // execute query
     connection.query(query, values, (err, results) => {
         if (err) {
@@ -79,10 +102,17 @@ app.post('/', (req, res) => {
         }
         else {
             console.log(results);
-            res.send('data insert success');
+            res.send(`user with name ${name} was created`);
         }
     });
 });
+
+const update_query = `
+UPDATE user 
+SET name = ?
+,email = ?
+,updated_on = now() 
+WHERE user_id = ?`;
 
 app.put('/', (req, res) => {
     console.log('got a PUT request');
@@ -90,8 +120,7 @@ app.put('/', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const user_id = req.query.user_id;
-    const updated_on = 'now()';
-    const query = `UPDATE user SET name = ?, email = ?, updated_on = now() WHERE user_id = ?`;
+    const query = update_query;
     const values = [name, email, user_id];
     connection.query(query, values, (err, results) => {
         if (err) {

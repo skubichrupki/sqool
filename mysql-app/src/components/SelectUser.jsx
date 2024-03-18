@@ -29,6 +29,7 @@ function SelectUser() {
                         <th>User ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th>Created On</th>
                         <th>Updated On</th>
                         <th>Action</th>
@@ -41,6 +42,7 @@ function SelectUser() {
                             <td>{user.user_id}</td>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
+                            <td>{user.status}</td>
                             <td>{user.created_on}</td>
                             <td>{user.updated_on}</td>
                             <td>
