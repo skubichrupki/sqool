@@ -12,24 +12,23 @@ function UpdateUser() {
     const[input_values, setInputValues] = useState({name:'', email:''});
     // like ready() or document load
     useEffect(getUser, [user_id]);
-    let action = '2';
     const [notification, setNotification] = useState('');
 
     function getUser() {
-        axios.get(`http://localhost:81/sqool/mysql-app/php/index.php?user_id=${user_id}`).then((response) => {
+        axios.get(`http://localhost:5000?user_id=${user_id}`).then((response) => {
             // console.log(response.data[0]);
             setInputValues(response.data[0]);
         });
-    }
+    } 
 
     const handleSubmit = (event) => {
         event.preventDefault();
         // console.log(input_values);
         // put is used to overwrite the data
-        axios.put(`http://localhost:81/sqool/mysql-app/php/index.php?user_id=${user_id}`, {action, input_values}).then((response) => {
+        axios.put(`http://localhost:5000?user_id=${user_id}`, input_values).then((response) => {
             // console.log(response.data);
             // navigate('/SelectUser');
-            setNotification(`user_id ${user_id} was updated`);
+            setNotification(response.data);
         });
     }
 

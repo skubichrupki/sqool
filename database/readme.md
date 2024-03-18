@@ -19,4 +19,13 @@
     `created_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     `updated_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP())
 
+## select fields tables
+
+### create status table
+
+    create table `status` (
+    `status_id` int NOT NULL PRIMARY KEY auto_increment,
+    `description` varchar(50)
+)
+
 

@@ -31,12 +31,13 @@ connection.connect((err) => {
 // app.method(path, handler())
 app.get('/', (req, res) => {
     console.log('got a GET request');
-    const query = 'SELECT * FROM user';
-    // check if user_id exists in request body
-    if (req.body.user_id) {
+    console.log(req.query);
+    let query = 'SELECT * FROM user';
+    // check if user_id exists in request header?
+    if (req.query.user_id) {
         query += ' WHERE user_id = ?'
-        const values = [req.body.user_id]
-        connection.query(query, (err, results) => {
+        const user_id = req.query.user_id
+        connection.query(query, user_id, (err, results) => {
             if (err) {
                 console.log(err)
                 res.send('data insert fail: ' + err);
@@ -84,9 +85,24 @@ app.post('/', (req, res) => {
 });
 
 app.put('/', (req, res) => {
-    res.send('got a put request!');
     console.log('got a PUT request');
-    const query = '';
+    console.log(req.query);
+    const name = req.body.name;
+    const email = req.body.email;
+    const user_id = req.query.user_id;
+    const updated_on = 'now()';
+    const query = `UPDATE user SET name = ?, email = ?, updated_on = now() WHERE user_id = ?`;
+    const values = [name, email, user_id];
+    connection.query(query, values, (err, results) => {
+        if (err) {
+            console.log(err);
+            res.send('data insert fail: ' + err);
+        }
+        else {
+            console.log(results);
+            res.send(`user_id ${user_id} data update success`);
+        }
+    })
 })
 
 app.delete('/', (req, res) => {
