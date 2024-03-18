@@ -5,7 +5,7 @@ function Header() {
         <header className='content'>
             <div>
                 <Link to="/">
-                    <img src="/logo2.jpg" alt="logo" />
+                    <img src="/logo_dark.jpg" alt="logo" />
                 </Link>
             </div>
             <div>
