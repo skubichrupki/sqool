@@ -1,4 +1,4 @@
-<img src="mysql-app/public/preview.png" alt="image preview" width="500">
+<!-- <img src="mysql-app/public/preview.png" alt="image preview" width="500"> -->
 
 # SQooL
 SQooL is a project aimed at exploring and comparing the integration of two popular SQL database management systems, Microsoft SQL Server and MySQL, within web applications.

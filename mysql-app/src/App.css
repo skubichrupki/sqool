@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #fff;
-  color: #252525;
+  background-color: #0d1117;
+  color: #fff;
 }
 
 /* header css */
@@ -25,8 +25,9 @@ header {
   flex-direction: row;
   width: 100vw;
   justify-content: space-between;
-  box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
   margin-bottom: 50px;
+  background-color: #010409;
+  border-bottom: 1px solid #30363d;
 }
 
 header div {
@@ -48,51 +49,57 @@ header nav ul li {
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.1s;
+  transition: background-color 0.2s;
 }
 
 nav ul li:hover {
-  background-color: #f1f2f4;
+  background-color: #171b20;
 }
 
 header nav ul li a {
   padding: inherit;
   text-decoration: none;
-  color: #252525;
+  color: #e6edec;
 }
 
 .boxxy {
-  background-color: #fcfcfc;
-  border: 1px solid azure;
+  background-color: #161b22;
+  border: 1px solid #30363d;
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
-  box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
 }
 
 /* table */
 
 table {
+  background-color: #161b22;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid azure;
+  border: 1px solid #30363d;
   border-radius: 8px; /* Rounded corners */
   overflow: hidden; /* Hide overflow */
-  background-color: #fcfcfc; /* Background color */
-  box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
   margin-top: 10px;
 }
 
 table th {
   font-weight: normal;
   padding: 5px;
-  background-color: #fff; /* Header background color */
+  background-color: #010409; /* Header background color */
   text-align: left;
 }
 
 table td {
   padding: 5px;
-  border-top: 1px solid #fff; /* Light border color */
+  border-top: 1px solid #30363d; /* Light border color */
+}
+
+table td a {
+  color: #fff;
+  text-decoration: none;
+}
+table td a:hover {
+  color: #f1f2f4;
 }
 
 /* form css */
@@ -143,7 +150,5 @@ button {
 }
 
 button:hover {
-  background-color: #85c4ff;
-  border: 1px solid #85c4ff;
-  color: #fff;
+  background-color: #f1f2f4;
 }

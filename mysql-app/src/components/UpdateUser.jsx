@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FormInput from "./FormInput";
+import FormSelect from "./FormSelect";
 import Button from "./Button";
 import Notification from "./Notification";
 
@@ -33,12 +34,15 @@ function UpdateUser() {
     }
 
     const handleChange = (event) => {
-        // console.log(event.target.value);
         const input_name = event.target.name;
-        const input_value = event.target.value;
-        // taken from CreateUser.js
+        let input_value;
+        if (event.target.tagName == 'INPUT') {
+            input_value = event.target.value;
+        }
+        else if (event.target.tagName == 'SELECT') {
+            input_value = event.target.selectedIndex;
+        }
         setInputValues(object_values => ({...object_values, [input_name]: input_value}));
-        // console.log(input_values);
     }
 
     return (
@@ -47,6 +51,7 @@ function UpdateUser() {
                 Update User ID: {user_id}
                 <FormInput label="Name" type="text" name="name" onChange={handleChange} value={input_values['name']} className="input-wrapper"/>
                 <FormInput label="Email" type="text" name="email" onChange={handleChange} value={input_values['email']} className="input-wrapper"/>
+                <FormSelect label="Status" name="status_id" onChange={handleChange} isRequired={true} tableName="status" keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>
             </form>
             <Link to={`/SelectUser`}>

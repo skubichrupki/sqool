@@ -38,6 +38,7 @@ FROM react.user as u
 INNER JOIN react.status s 
 ON s.status_id = u.status_id`;
 
+// get data from main table
 // / = http://localhost:5000/
 // app.method(path, handler())
 app.get('/', (req, res) => {
@@ -84,6 +85,7 @@ app.get('/table/:tableName', (req, res) => {
     })
 })
 
+// create ticket
 app.post('/', (req, res) => {
     console.log('got a POST request');
     console.log(req.body);
@@ -107,10 +109,12 @@ app.post('/', (req, res) => {
     });
 });
 
+// update ticket
 const update_query = `
 UPDATE user 
 SET name = ?
 ,email = ?
+,status_id = ?
 ,updated_on = now() 
 WHERE user_id = ?`;
 
@@ -119,9 +123,10 @@ app.put('/', (req, res) => {
     console.log(req.query);
     const name = req.body.name;
     const email = req.body.email;
+    const status_id = req.body.status_id;
     const user_id = req.query.user_id;
     const query = update_query;
-    const values = [name, email, user_id];
+    const values = [name, email, status_id, user_id];
     connection.query(query, values, (err, results) => {
         if (err) {
             console.log(err);
@@ -140,5 +145,8 @@ app.delete('/', (req, res) => {
     const query = '';
 })
 
-
+// authentication
+app.post('/login', async (req, res) => {
+    // to do
+})
 
