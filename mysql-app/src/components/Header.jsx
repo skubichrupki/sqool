@@ -2,38 +2,43 @@ import {Link} from 'react-router-dom';
 
 function Header() {
     return (
-        <header className='content'>
+        <header>
             <div>
                 <Link to="/">
-                    {/* <img src="/logo_3.png" alt="logo" /> */}
-                    <p>logo placeholder</p>
+                    <img src="/logo_light.jpg" alt="logo" />
                 </Link>
             </div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/SelectUser">
+                            List User
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/CreateUser">
+                            Create User
+                        </Link>
+                    </li>
+                    {/* <li>
+                        <Link to="/UpdateUser/1">
+                            Update User
+                        </Link>
+                    </li> */}
+                </ul>
+            </nav>
             <div>
-                <nav>
-                    <ul className='boxxy'>
-                        <li>
-                            <Link to="/">
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/SelectUser">
-                                List User
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/CreateUser">
-                                Create User
-                            </Link>
-                        </li>
-                        {/* <li>
-                            <Link to="/UpdateUser/1">
-                                Update User
-                            </Link>
-                        </li> */}
-                    </ul>
-                </nav>
+                <Link to="/">
+                    git
+                </Link>
+                <Link to="/">
+                    li
+                </Link>
             </div>
         </header>
     );

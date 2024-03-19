@@ -47,7 +47,7 @@ function SelectUser() {
                             <td>{user.updated_on}</td>
                             <td>
                                 <Link to={`/UpdateUser/${user.user_id}`}>
-                                    <Button text="Update"/>
+                                    <p>Update</p>
                                 </Link>
                             </td>
                         </tr>

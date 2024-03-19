@@ -4,20 +4,16 @@
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #202124;
-  color: #fff;
-}
-
-.content {
-  max-width: 800px;
-  min-width: 400px;
+  background-color: #fff;
+  color: #252525;
 }
 
 /* header css */
 img {
-  width: 100px;
-  height: auto;
+  width: auto;
+  height: 60px;
   transition: transform 0.3s ease;
+  padding: 5px;
 }
 
 img:hover {
@@ -26,18 +22,47 @@ img:hover {
 
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
+  margin-bottom: 50px;
 }
 
 header div {
+  width: 100px;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+}
+
+header nav ul li {
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.1s;
+}
+
+nav ul li:hover {
+  background-color: #f1f2f4;
+}
+
+header nav ul li a {
+  padding: inherit;
+  text-decoration: none;
+  color: #252525;
 }
 
 .boxxy {
-  background-color: #303134;
+  background-color: #fcfcfc;
   border: 1px solid azure;
   border-radius: 8px;
   padding: 10px;
@@ -53,7 +78,7 @@ table {
   border: 1px solid azure;
   border-radius: 8px; /* Rounded corners */
   overflow: hidden; /* Hide overflow */
-  background-color: #303134; /* Background color */
+  background-color: #fcfcfc; /* Background color */
   box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
   margin-top: 10px;
 }
@@ -61,32 +86,13 @@ table {
 table th {
   font-weight: normal;
   padding: 5px;
-  background-color: #252525; /* Header background color */
+  background-color: #fff; /* Header background color */
   text-align: left;
 }
 
 table td {
   padding: 5px;
   border-top: 1px solid #fff; /* Light border color */
-}
-
-/* nav */
-
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 400px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-
-nav ul li a:hover {
-  color: #98c2ea;
 }
 
 /* form css */
