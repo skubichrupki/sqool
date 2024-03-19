@@ -4,10 +4,11 @@
 - clone https://github.com/skubichrupki/sqool
   
 1. install dependencies
+  - cd to mysql-app
+  - npm init
   - npm install (react dependencies that are too big for github)
   - npm install axios (library for handling data transfer)
   - cd to backend
-  - npm init
   - npm install express
   - npm install mysql2
 2. run frontend server

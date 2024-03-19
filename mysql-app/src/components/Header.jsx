@@ -5,7 +5,8 @@ function Header() {
         <header className='content'>
             <div>
                 <Link to="/">
-                    <img src="/logo_dark.jpg" alt="logo" />
+                    {/* <img src="/logo_3.png" alt="logo" /> */}
+                    <p>logo placeholder</p>
                 </Link>
             </div>
             <div>

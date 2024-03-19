@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  background-color: #605e5f;
+  background-color: #202124;
   color: #fff;
 }
 
@@ -21,7 +21,7 @@ img {
 }
 
 img:hover {
-  transform: scale(1.05) rotate(-5deg);
+  transform: scale(1.03) rotate(0deg);
 }
 
 header {
@@ -37,11 +37,12 @@ header div {
 }
 
 .boxxy {
-  background-color: #252525;
+  background-color: #303134;
+  border: 1px solid azure;
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
 }
 
 /* table */
@@ -49,10 +50,11 @@ header div {
 table {
   border-collapse: separate;
   border-spacing: 0;
+  border: 1px solid azure;
   border-radius: 8px; /* Rounded corners */
   overflow: hidden; /* Hide overflow */
-  background-color: #303030; /* Background color */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  background-color: #303134; /* Background color */
+  box-shadow: 0 4px 6px rgba(120, 182, 225, 0.3); /* Box shadow for depth */
   margin-top: 10px;
 }
 
@@ -84,7 +86,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #85c4ff;
+  color: #98c2ea;
 }
 
 /* form css */
