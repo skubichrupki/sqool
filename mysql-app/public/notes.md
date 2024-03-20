@@ -45,3 +45,5 @@ manifest.json: json metadata about the application
     "display" specifies how the application should be displayed (e.g., fullscreen, standalone, browser).
     "theme_color" and "background_color" specify the colors used for the application's theme and background, respectively.
     "icons" provides an array of icons in different sizes and formats for the application.
+
+    npm install @fortawesome/fontawesome-free

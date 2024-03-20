@@ -22,8 +22,8 @@ function CreateUser() {
             // navigate('/SelectUser');
             console.log(response.data);
             setNotification(response.data);
-        }, function () {
-            console.log('axios.post response error');
+        }, function (error) {
+            console.log('axios.post response error' + error);
         });
     }
 
@@ -48,11 +48,11 @@ function CreateUser() {
 
     return (
         <div>
-            <form className="boxxy" onSubmit={handleSubmit}>
-                Create User
-                <FormInput label="Name" type="text" name="name" onChange={handleChange} isRequired={true} className="input-wrapper"/>
-                <FormInput label="Email" type="text" name="email" onChange={handleChange} isRequired={true} className="input-wrapper"/>
-                <FormSelect label="Status" name="status_id" onChange={handleChange} isRequired={true} tableName="status" keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
+            <form onSubmit={handleSubmit} className="boxxy">
+                Create Item
+                <FormInput type="text" label="Item Number" name="item_number" isRequired={true} onChange={handleChange} value={input_values['item_number']} className="input-wrapper"/>
+                <FormInput type="text" label="Item Description"  name="item_description" isRequired={true} onChange={handleChange} value={input_values['item_description']} className="input-wrapper"/>
+                <FormSelect label="Status" name="status_id" isRequired={true} onChange={handleChange} tableName="status" value={input_values['status_id']} keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>
             </form>
             {notification ? <Notification message={notification} className="boxxy"/> : null}

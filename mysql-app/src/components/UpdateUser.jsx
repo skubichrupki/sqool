@@ -8,15 +8,15 @@ import Notification from "./Notification";
 
 function UpdateUser() {
 
-    // get user_id value from "http://localhost:3000/UpdateUser/:user_id"
-    const {user_id} = useParams();
-    const[input_values, setInputValues] = useState({name:'', email:''});
+    // get item_id value from "http://localhost:3000/UpdateUser/:item_id"
+    const {item_id} = useParams();
+    const[input_values, setInputValues] = useState({item_number:'', item_description:'', status_id:''});
     // like ready() or document load
-    useEffect(getUser, [user_id]);
+    useEffect(getItem, [item_id]);
     const [notification, setNotification] = useState('');
 
-    function getUser() {
-        axios.get(`http://localhost:5000?user_id=${user_id}`).then((response) => {
+    function getItem() {
+        axios.get(`http://localhost:5000?item_id=${item_id}`).then((response) => {
             // console.log(response.data[0]);
             setInputValues(response.data[0]);
         });
@@ -26,8 +26,7 @@ function UpdateUser() {
         event.preventDefault();
         // console.log(input_values);
         // put is used to overwrite the data
-        axios.put(`http://localhost:5000?user_id=${user_id}`, input_values).then((response) => {
-            // console.log(response.data);
+        axios.put(`http://localhost:5000?item_id=${item_id}`, input_values).then((response) => {
             // navigate('/SelectUser');
             setNotification(response.data);
         });
@@ -40,23 +39,24 @@ function UpdateUser() {
             input_value = event.target.value;
         }
         else if (event.target.tagName == 'SELECT') {
-            input_value = event.target.selectedIndex;
+            input_value = event.target.value;
         }
         setInputValues(object_values => ({...object_values, [input_name]: input_value}));
     }
 
     return (
         <div>
-            <form className='boxxy' onSubmit={handleSubmit}>
-                Update User ID: {user_id}
-                <FormInput label="Name" type="text" name="name" onChange={handleChange} value={input_values['name']} className="input-wrapper"/>
-                <FormInput label="Email" type="text" name="email" onChange={handleChange} value={input_values['email']} className="input-wrapper"/>
-                <FormSelect label="Status" name="status_id" onChange={handleChange} isRequired={true} tableName="status" keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
+            <form onSubmit={handleSubmit} className='boxxy'>
+                Update User ID: {item_id}
+                <FormInput type="text" label="Item Number" name="item_number" isRequired={true} onChange={handleChange} value={input_values['item_number']} className="input-wrapper"/>
+                <FormInput type="text" label="Item Description"  name="item_description" isRequired={true} onChange={handleChange} value={input_values['item_description']} className="input-wrapper"/>
+                <FormSelect label="Status" name="status_id" isRequired={true} onChange={handleChange} tableName="status" value={input_values['status_id']} keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>
             </form>
             <Link to={`/SelectUser`}>
                 <Button text={"Back to list"}/>
             </Link>
+            {/* notification after submit */}
             {notification ? <Notification message={notification} className="boxxy"/> : null}
         </div>
     )

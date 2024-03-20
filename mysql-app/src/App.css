@@ -8,12 +8,48 @@
   color: #fff;
 }
 
+.tableContent {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 80%;
+}
+
+.tableContent div {
+  width: 100%;
+}
+
+.tableHeader {
+  width: 100%;
+}
+
+.tableContent div table tbody {
+  width: 100%;
+}
+
+/* if screen goes small */
+@media (max-width: 900px) {
+  .tableContent {
+    flex-direction: column;
+  }
+  .tableContent > div {
+    width: 100%;
+    height: 25%;
+    overflow-y: auto; /* Vertical scrollbar for table body */
+  }
+  table {
+    width: 100%;
+  }
+}
+
 /* header css */
-img {
+header img {
   width: auto;
   height: 60px;
   transition: transform 0.3s ease;
   padding: 5px;
+  margin-left: 10px;
 }
 
 img:hover {
@@ -62,6 +98,25 @@ header nav ul li a {
   color: #e6edec;
 }
 
+/* social media icons */
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.icon {
+  font-size: 24px; /* Set the font size of the icon */
+  color: #fff; /* Set the color of the icon */
+  padding: 2px;
+}
+
+.icon:hover {
+  color: #ccc; /* Change the color of the icon on hover */
+}
+
 .boxxy {
   background-color: #161b22;
   border: 1px solid #30363d;
@@ -79,7 +134,6 @@ table {
   border: 1px solid #30363d;
   border-radius: 8px; /* Rounded corners */
   overflow: hidden; /* Hide overflow */
-  margin-top: 10px;
 }
 
 table th {
@@ -90,8 +144,10 @@ table th {
 }
 
 table td {
-  padding: 5px;
+  padding: 3px;
   border-top: 1px solid #30363d; /* Light border color */
+  min-width: 30px;
+  line-height: 1;
 }
 
 table td a {
@@ -137,18 +193,21 @@ form {
 }
 
 button {
+  background-color: #496f94;
+  border: 1px solid #496f94;
+  border-radius: 5px;
+  color: #fff;
   padding: 5px;
   min-width: 100px;
   width: auto;
-  border-radius: 5px;
-  border: 1px solid #aaa;
   cursor: pointer;
-  background-color: #fff;
   font-size: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
   transition: background-color 0.1s ease, color 0.1s ease;
 }
 
 button:hover {
-  background-color: #f1f2f4;
+  background-color: #5882ad;
+  border: 1px solid #5882ad;
 }
+

@@ -1,7 +1,7 @@
 const Home = () => {
     return(
         <div className="boxxy">
-            Welcome to SQooL
+            Welcome to Setag Automotive
         </div>
     )
 }
