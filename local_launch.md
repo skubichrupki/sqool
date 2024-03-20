@@ -8,6 +8,8 @@
   - npm init
   - npm install (react dependencies that are too big for github)
   - npm install axios (library for handling data transfer)
+  - npm install @fortawesome/react-fontawesome 
+  - npm install @fortawesome/free-brands-svg-icons (social media icons)
   - cd to backend
   - npm install express
   - npm install mysql2
