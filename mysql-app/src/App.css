@@ -20,10 +20,13 @@ header {
   height: 10vh;
 }
 
-
 header div {
   width: 10vw;
   height: 5vh;
+}
+
+header nav {
+  width: 80vw;
 }
 
 #headerimg {
@@ -38,18 +41,15 @@ header div {
 }
 
 #headerimg:hover {
-  transform: scale(1.03) rotate(0deg);
+  transform: scale(1.05) rotate(-3deg);
 }
 
 header nav ul {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-around;
-  list-style: none;
-  width: 100%;
 }
 
 header nav ul li {
@@ -95,6 +95,13 @@ header nav ul li a {
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
+}
+
+.notification {
+  position: fixed;
+  top: 50%; /* Position the element 50% from the top */
+  left: 50%; /* Position the element 50% from the left */
+  transform: translate(-50%, -50%);
 }
 
 /* table */
@@ -148,24 +155,21 @@ table th {
   text-align: left;
 }
 
-table td {
-  border-top: 1px solid #30363d; /* Light border color */
-  line-height: 1;
+
+table tbody tr:hover {
+  cursor: pointer;
+  background-color: #496f94;
 }
 
-table td a {
-  color: #fff;
-  text-decoration: none;
-}
-table td a:hover {
-  color: #f1f2f4;
+table td {
+  border-top: 1px solid #30363d; /* Light border color */
+  line-height: 2;
 }
 
 /* if screen goes small */
 @media (max-width: 900px) {
-
   nav {
-    font-size: 12px;
+    font-size: 14px;
   }
   .tableContent {
     flex-direction: column;
@@ -212,14 +216,17 @@ table td a:hover {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  width: 50vw;
+  height: 80vh;
 }
 
 .input-wrapper {
   display: flex;
   flex-direction: column;
   width: 200px;
+  height: 50px;
   padding: 10px;
 }
 
@@ -238,7 +245,6 @@ form {
 .input-wrapper select {
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #aaa;
   width: 180px;
 }
 
