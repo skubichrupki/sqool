@@ -8,7 +8,7 @@ function Header() {
         <header>
             <div>
                 <Link to="/">
-                    <img src="/logo_setag.png" alt="logo" />
+                    <img id="headerimg" src="/logo_setag.png" alt="logo" />
                 </Link>
             </div>
             <nav>

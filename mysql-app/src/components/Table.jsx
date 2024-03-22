@@ -1,18 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({status, label}) => {
+const Table = ({status, label, counter}) => {
     return(
-        <div>
-            {label}
+        <div className="tableHolder">
+            <div className="tableLabel">{label}: {counter}</div>
             <table>
                 <thead>
                     <tr>
                         <th>Item ID</th>
                         <th>Item Number</th>
-                        {/* <th>Status</th> */}
                         <th>Created On</th>
-                        {/* <th>Updated On</th> */}
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -22,9 +20,7 @@ const Table = ({status, label}) => {
                         <tr key={item.item_id}>
                             <td>{item.item_id}</td>
                             <td>{item.item_number}</td>
-                            {/* <td>{item.status}</td> */}
                             <td>{item.created_on}</td>
-                            {/* <td>{item.updated_on}</td> */}
                             <td>
                                 <Link to={`/UpdateUser/${item.item_id}`}>
                                     <p>Update</p>

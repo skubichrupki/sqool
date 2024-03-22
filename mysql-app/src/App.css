@@ -8,62 +8,37 @@
   color: #fff;
 }
 
-.tableContent {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 80%;
-}
-
-.tableHeader {
-  width: 100%;
-}
-
-.tableContent div table tbody {
-  width: 100%;
-}
-
-/* if screen goes small */
-@media (max-width: 900px) {
-  .tableContent {
-    flex-direction: column;
-  }
-  .tableContent > div {
-    width: 100%;
-    height: 25%;
-    overflow-y: auto; /* Vertical scrollbar for table body */
-  }
-  table {
-    width: 100%;
-  }
-}
-
 /* header css */
-header img {
-  width: auto;
-  height: 60px;
-  transition: transform 0.3s ease;
-  padding: 5px;
-  margin-left: 10px;
-}
-
-img:hover {
-  transform: scale(1.03) rotate(0deg);
-}
-
 header {
   display: flex;
   flex-direction: row;
   width: 100vw;
   justify-content: space-between;
-  margin-bottom: 50px;
+  align-items: center;
   background-color: #010409;
   border-bottom: 1px solid #30363d;
+  height: 10vh;
 }
 
+
 header div {
+  width: 10vw;
+  height: 5vh;
+}
+
+#headerimg {
+  height: 5vh;
+  transition: transform 0.3s ease;
+  margin-left: 10px;
+}
+
+#homeimg {
   width: 100px;
+  height: auto;
+}
+
+#headerimg:hover {
+  transform: scale(1.03) rotate(0deg);
 }
 
 header nav ul {
@@ -101,10 +76,11 @@ header nav ul li a {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  margin-right: 10px;
 }
 
 .icon {
-  font-size: 24px; /* Set the font size of the icon */
+  font-size: 25px; /* Set the font size of the icon */
   color: #fff; /* Set the color of the icon */
   padding: 2px;
 }
@@ -123,26 +99,57 @@ header nav ul li a {
 
 /* table */
 
+.tableContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100vw;
+  height: 80vh;
+}
+
+.tableHolder {
+  width: 20vw;
+  height: 80vh;  
+}
+
+.tableLabel {
+  height: 5vh;
+}
+
 table {
   background-color: #161b22;
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid #30363d;
   border-radius: 8px; /* Rounded corners */
-  overflow: hidden; /* Hide overflow */
+  font-size: 14px;
+  height: 45vh;
+}
+
+table thead {
+  height: 5vh;
+}
+
+table tbody {
+  display: block;
+  overflow-y: auto;
+  height: 40vh;
+}
+
+table thead, table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Important for fixed table layout */
 }
 
 table th {
   font-weight: normal;
-  padding: 5px;
   background-color: #010409; /* Header background color */
   text-align: left;
 }
 
 table td {
-  padding: 3px;
   border-top: 1px solid #30363d; /* Light border color */
-  min-width: 30px;
   line-height: 1;
 }
 
@@ -152,6 +159,53 @@ table td a {
 }
 table td a:hover {
   color: #f1f2f4;
+}
+
+/* if screen goes small */
+@media (max-width: 900px) {
+
+  nav {
+    font-size: 12px;
+  }
+  .tableContent {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .tableHolder {
+    width: 100vw;
+    height: 20vh;
+  }
+  .tableLabel {
+    height: 4vh;
+  }
+  table {
+    height: 16vh;
+  }
+  table thead {
+    height: 4vh;
+  }
+  table tbody {
+    height: 12vh;
+    
+  }
+
+}
+
+/* For webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #496f94;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5882ad;
 }
 
 /* form css */

@@ -11,10 +11,10 @@ function SelectUser() {
     const inReviewItemArray = itemArray.filter(item => item.status_id == 2);
     const inProgressItemArray = itemArray.filter(item => item.status_id == 3);
     const doneItemArray = itemArray.filter(item => item.status_id == 4);
-    itemArray.forEach((item) => {
-        if (item.status_id == 2) {
-        }
-    })
+    const backlogItemArrayCounter = backlogItemArray.length;
+    const inReviewItemArrayCounter = inReviewItemArray.length;
+    const inProgressItemArrayCounter = inProgressItemArray.length;
+    const doneItemArrayCounter = doneItemArray.length;
 
     useEffect(function() {
         getItem();
@@ -31,10 +31,10 @@ function SelectUser() {
 
     return (
         <div className="tableContent">
-            <Table label="Backlog" status={backlogItemArray}/>
-            <Table label="In Review" status={inReviewItemArray}/>
-            <Table label="In Progress" status={inProgressItemArray}/>
-            <Table label="Done" status={doneItemArray}/>
+            <Table label="Backlog" counter={backlogItemArrayCounter}status={backlogItemArray}/>
+            <Table label="In Review" counter={inReviewItemArrayCounter} status={inReviewItemArray}/>
+            <Table label="In Progress" counter={inProgressItemArrayCounter} status={inProgressItemArray}/>
+            <Table label="Done" counter={doneItemArrayCounter} status={doneItemArray}/>
         </div>
     )
 }
