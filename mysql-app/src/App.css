@@ -110,17 +110,20 @@ header nav ul li a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   width: 100vw;
   height: 80vh;
 }
 
 .tableHolder {
   width: 20vw;
-  height: 80vh;  
+  height: 60vh;  
 }
 
 .tableLabel {
-  height: 5vh;
+  display: flex;
+  align-items: flex-end;
+  height: 2vh;
 }
 
 table {
@@ -179,23 +182,19 @@ table td {
     width: 100vw;
     height: 20vh;
   }
-  .tableLabel {
-    height: 4vh;
-  }
   table {
-    height: 16vh;
+    height: 18vh;
   }
   table thead {
     height: 4vh;
   }
   table tbody {
-    height: 12vh;
+    height: 14vh;
     
   }
-
 }
 
-/* For webkit browsers */
+/* scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -212,7 +211,7 @@ table td {
   background: #5882ad;
 }
 
-/* form css */
+/* form */
 form {
   display: flex;
   flex-direction: column;
