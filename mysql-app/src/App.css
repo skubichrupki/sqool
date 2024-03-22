@@ -35,11 +35,6 @@ header nav {
   margin-left: 10px;
 }
 
-#homeimg {
-  width: 100px;
-  height: auto;
-}
-
 #headerimg:hover {
   transform: scale(1.05) rotate(-3deg);
 }
@@ -87,21 +82,6 @@ header nav ul li a {
 
 .icon:hover {
   color: #ccc; /* Change the color of the icon on hover */
-}
-
-.boxxy {
-  background-color: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px;
-}
-
-.notification {
-  position: fixed;
-  top: 50%; /* Position the element 50% from the top */
-  left: 50%; /* Position the element 50% from the left */
-  transform: translate(-50%, -50%);
 }
 
 /* table */
@@ -264,5 +244,33 @@ button {
 button:hover {
   background-color: #5882ad;
   border: 1px solid #5882ad;
+}
+
+/* other */
+
+.boxxy {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.notification {
+  position: fixed;
+  top: 50%; /* Position the element 50% from the top */
+  left: 50%; /* Position the element 50% from the left */
+  transform: translate(-50%, -50%);
+}
+
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeContent img {
+  height: 200px;
 }
 

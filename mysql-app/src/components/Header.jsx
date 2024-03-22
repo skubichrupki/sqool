@@ -28,6 +28,11 @@ function Header() {
                             Create Item
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/Login">
+                            Login
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <div className='icons'>

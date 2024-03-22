@@ -95,7 +95,7 @@ INSERT INTO item (item_number, item_description, status_id)
 VALUES (?,?,?)`;
 
 // create ticket
-app.post('/', (req, res) => {
+app.post('/CreateUser', (req, res) => {
     console.log('got a POST request');
     console.log(req.body);
     // get json values from post request body
@@ -153,6 +153,7 @@ app.delete('/', (req, res) => {
 
 // authentication
 app.post('/login', async (req, res) => {
-    // to do
+    console.log('got a POST request from LOGIN');
+    res.send('got a POST request from LOGIN');
 })
 
