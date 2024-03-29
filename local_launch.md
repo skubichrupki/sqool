@@ -8,9 +8,10 @@
       - npm init
       - npm install (node modules etc)
       - npm install axios react-router-dom
-      - npm install @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons
     - cd to backend
-      - npm install express cors mysql2 nodemon cookie-parser jsonwebtoken
+      - npm install express cors mysql2 (MySQL)
+      - npm install mssql (SQL Server)
+      - npm install nodemon cookie-parser jsonwebtoken (user authentication)
 2. run frontend server
     - cd to mysql-app
     - npm run start (run node.js server on localhost:3000)

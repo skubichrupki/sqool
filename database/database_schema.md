@@ -26,7 +26,6 @@
     ) 
 
 ## select fields tables
-
 ### create status table
 
     CREATE TABLE `status` (

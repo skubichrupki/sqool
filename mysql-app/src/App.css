@@ -31,12 +31,7 @@ header nav {
 
 #headerimg {
   height: 5vh;
-  transition: transform 0.3s ease;
   margin-left: 10px;
-}
-
-#headerimg:hover {
-  transform: scale(1.05) rotate(-3deg);
 }
 
 header nav ul {
@@ -62,26 +57,6 @@ header nav ul li a {
   padding: inherit;
   text-decoration: none;
   color: #e6edec;
-}
-
-/* social media icons */
-
-.icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 10px;
-}
-
-.icon {
-  font-size: 25px; /* Set the font size of the icon */
-  color: #fff; /* Set the color of the icon */
-  padding: 2px;
-}
-
-.icon:hover {
-  color: #ccc; /* Change the color of the icon on hover */
 }
 
 /* table */
@@ -163,13 +138,13 @@ table td {
     height: 20vh;
   }
   table {
-    height: 18vh;
+    height: 16vh;
   }
   table thead {
-    height: 4vh;
+    height: 3vh;
   }
   table tbody {
-    height: 14vh;
+    height: 13vh;
     
   }
 }

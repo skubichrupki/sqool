@@ -36,12 +36,7 @@ function Header() {
                 </ul>
             </nav>
             <div className='icons'>
-                <a href="https://github.com/skubichrupki" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faGithub} className="icon"/>
-                </a>
-                <a href="https://www.linkedin.com/in/michal-skupinski-236040234/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faLinkedin} className="icon" />
-                </a>
+              
             </div>
         </header>
     );
