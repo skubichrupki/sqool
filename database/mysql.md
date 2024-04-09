@@ -1,17 +1,12 @@
-## MySQL DATABASE STRUCTURE ##
-
 ### create database
-
     CREATE DATABASE react;
 
 ### create user for application
-
     CREATE USER 'test_user'@'localhost' IDENTIFIED BY 'test_user';
     GRANT ALL PRIVILEGES ON *.* TO 'test_user'@'localhost';
     FLUSH PRIVILEGES;
 
 ### create item table
-
     CREATE TABLE `item` (
     `item_id` int NOT NULL AUTO_INCREMENT,
     `item_number` varchar(50) NOT NULL,
@@ -27,13 +22,10 @@
 
 ## select fields tables
 ### create status table
-
     CREATE TABLE `status` (
     `status_id` int NOT NULL AUTO_INCREMENT,
     `description` varchar(50) DEFAULT NULL,
     PRIMARY KEY (`status_id`)
     )
-
     INSERT INTO react.status (description) 
     values ('Backlog'), ('In Review'), ('In Progress'), ('Done');
-
