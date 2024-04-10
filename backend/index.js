@@ -11,7 +11,7 @@ app.listen(port, () => {
     console.log(`express.js server is listening on port ${port}`);
 })
 
-// config connection to mysql
+// config connection to sql
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     database: 'react',
@@ -20,11 +20,12 @@ const connection = mysql.createConnection({
     password: 'test_user'
 })
 
-// check connection to mysql
+// check connection to sql
 connection.connect((error) => {
-    error ? console.log(error) : console.log('g');
+    error ? console.log(error) : null;
 });
 
+// get tickets for select component
 const select_query = `
 SELECT item_id
 ,item_number
@@ -45,7 +46,7 @@ ON stat.status_id = item.status_id`;
 // app.method(path, handler())
 app.get('/', (req, res) => {
     let query = select_query;
-    // check if item_id exists in request header?
+    // check if item_id exists in request header
     if (req.query.item_id) {
         console.log(`got a GET request for item: ${req.query.item_id}`);
         query += ` WHERE item_id = ? ORDER BY item_id desc`
@@ -78,8 +79,8 @@ app.get('/', (req, res) => {
 app.get('/table/:tableName', (req, res) => {
     const tableName = req.params.tableName;
     const query = `SELECT * FROM ${tableName}`
-    connection.query(query, (err, results) => {
-        res.json(results)
+    connection.query(query, (error, results) => {
+        error ? console.log(error) : res.json(results)
     })
 })
 
@@ -88,7 +89,6 @@ const insert_query = `
 INSERT INTO item (item_number, item_description, status_id) 
 VALUES (?,?,?)`;
 
-// create ticket
 app.post('/CreateUser', (req, res) => {
     console.log(req.body);
     // get json values from post request body
@@ -135,7 +135,9 @@ app.put('/', (req, res) => {
     })
 })
 
-// delete ticket: tbd
+// TO BE DONE
+
+// delete ticket
 app.delete('/', (req, res) => {
     res.send('got a DELETE request!');
     const query = '';

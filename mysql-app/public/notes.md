@@ -1,4 +1,3 @@
-react js, CRUD example app using PHP API and MySQL db
 - install node
 node --version: v18.18.0
 - install npm
@@ -6,10 +5,6 @@ npm --version: 9.8.1
 
 npx create-react-app mysql-app
 
-note my react:
-
-    npm run start
-    Starts the development server.
     npm run build
     Bundles the app into static files for production.
     npm test
@@ -17,9 +12,6 @@ note my react:
     npm run eject
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
-    We suggest that you begin by typing:
-    cd mysql-app
-    npm start
 
 safe do delete files from freshly made react app:
 src:
@@ -45,5 +37,3 @@ manifest.json: json metadata about the application
     "display" specifies how the application should be displayed (e.g., fullscreen, standalone, browser).
     "theme_color" and "background_color" specify the colors used for the application's theme and background, respectively.
     "icons" provides an array of icons in different sizes and formats for the application.
-
-    npm install @fortawesome/fontawesome-free

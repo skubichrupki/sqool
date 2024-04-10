@@ -17,12 +17,12 @@ function CreateUser({label}) {
     async function handleSubmit (event) {
         event.preventDefault();
         console.log(input_values);
-        axios.post('http://localhost:5000/CreateUser', input_values).then(function(response) {
+        axios.post('http://localhost:5000/CreateUser', input_values).then((response) => {
             // navigate('/SelectUser');
             console.log(response.data);
             setNotification(response.data);
-        }, function (error) {
-            console.log('axios.post response error' + error);
+        },(error) => {
+            console.log(error);
         });
     }
 

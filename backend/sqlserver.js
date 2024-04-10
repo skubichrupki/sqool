@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const mssql = require('mssql');
+const sql = require('mssql');
 
 const app = express();
-const port = 5500;
+const port = 8000;
 
 app.use(cors());
 app.use(express.json());
@@ -11,6 +11,7 @@ app.listen(port, () => {
     console.log(`express.js server is listening on port ${port}`);
 })
 
+// config connection to sql
 const config = {
     server: 'ACER\\SQLEXPRESS',
     database: 'react',
@@ -20,27 +21,50 @@ const config = {
     trustServerCertificate: true
 }
 
-const query = 'SELECT * FROM item';
-
-mssql.connect(config, (error) => {
-    error ? console.log(error) : console.log('g');
-})
-
-// update ticket
-const update_query = `
-UPDATE item 
-SET item_number = @item_number, item_description = @item_description, status_id = @status_id, updated_on = GETDATE() 
-WHERE item_id = @item_id`;
-
-app.put('/', async (req, res) => {
-    console.log(`got a PUT request for item: ${req.query.item_id}`);
+// check connection to sql
+sql.connect(config, (error) => {
+    error ? console.log(error) : null;
 });
 
-// TO DO: query from mssql
-// let request = new mssql.Request();
-// request.query(query, (error, results) => {
-//     error ? console.log(error) : console.log(results);
-// })
+// get data from tables for selects in form
+app.get('/table/:tableName', async (req, res) => {
+    const tableName = req.params.tableName;
+    // const query = `SELECT * FROM ${tableName}`
+    const query = `SELECT * FROM status`
+    const request = new sql.Request();
+    const results = await request.query(query);
+    console.log(results)
+    res.json(results.recordset);
+});
+
+// TO DO:
+
+// create ticket
+const insert_query = `
+INSERT INTO item (item_number, item_description, status_id) 
+VALUES (?,?,?)`;
+
+app.post('/CreateUser', (req, res) => {
+    console.log(req.body);
+    // get json values from post request body
+    //const {name, email} = req.body;
+    const item_number = req.body.item_number;
+    const item_description = req.body.item_description;
+    const status_id = req.body.status_id;
+    const query = insert_query;
+    const values = [item_number, item_description, status_id];
+    // execute query
+    connection.query(query, values, (err, results) => {
+        if (err) {
+            console.log(err)
+            res.send('data insert fail: ' + err);
+        }
+        else {
+            res.send(`item with item_number ${item_number} was created`);
+        }
+    });
+});
+
 
 
 
