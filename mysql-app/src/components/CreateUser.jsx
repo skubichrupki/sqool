@@ -7,12 +7,8 @@ import Notification from "./Notification";
 
 function CreateUser({label}) {
 
-    // const [current state, function(new state) to update state] = useState("");
-    // so you change mobileValue to value of argument sent to setMobileValue function
     const[input_values, setInputValues] = useState({});
     const[notification, setNotification] = useState('');
-
-    // const navigate = useNavigate();
 
     async function handleSubmit (event) {
         event.preventDefault();

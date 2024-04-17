@@ -10,28 +10,21 @@
 
 /* header css */
 header {
+  width: 100vw;
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background-color: #010409;
   border-bottom: 1px solid #30363d;
   height: 10vh;
 }
 
-header div {
-  width: 10vw;
-  height: 5vh;
-}
-
 header nav {
-  width: 80vw;
-}
-
-#headerimg {
-  height: 5vh;
-  margin-left: 10px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 header nav ul {
@@ -39,6 +32,7 @@ header nav ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 

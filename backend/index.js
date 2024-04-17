@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql2');
+const sql = require('mysql2');
 
 const app = express();
 const port = 5000;
@@ -12,7 +12,7 @@ app.listen(port, () => {
 })
 
 // config connection to sql
-const connection = mysql.createConnection({
+const connection = sql.createConnection({
     host: '127.0.0.1',
     database: 'react',
     port: '3306',
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
         connection.query(query, item_id, (err, results) => {
             if (err) {
                 console.log(err)
-                res.send('data insert fail: ' + err);
+                res.send(err);
             }
             else {
                 res.json(results);
@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
         connection.query(query, (err, results) => {
             if (err) {
                 console.log(err)
-                res.send('data insert fail: ' + err);
+                res.send(err);
             }
             else {
                 res.json(results);
@@ -102,7 +102,7 @@ app.post('/CreateUser', (req, res) => {
     connection.query(query, values, (err, results) => {
         if (err) {
             console.log(err)
-            res.send('data insert fail: ' + err);
+            res.send(err);
         }
         else {
             res.send(`item with item_number ${item_number} was created`);
@@ -127,7 +127,7 @@ app.put('/', (req, res) => {
     connection.query(query, values, (err, results) => {
         if (err) {
             console.log(err);
-            res.send('data insert fail: ' + err);
+            res.send(err);
         }
         else {
             res.send(`item_id ${item_id} data update success`);
@@ -140,12 +140,4 @@ app.put('/', (req, res) => {
 // delete ticket
 app.delete('/', (req, res) => {
     res.send('got a DELETE request!');
-    const query = '';
 })
-
-// authentication
-app.post('/login', async (req, res) => {
-    console.log('got a POST request from LOGIN');
-    res.send('got a POST request from LOGIN');
-})
-

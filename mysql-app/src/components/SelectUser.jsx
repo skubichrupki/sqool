@@ -11,6 +11,7 @@ function SelectUser() {
     const inReviewItemArray = itemArray.filter(item => item.status_id === 2);
     const inProgressItemArray = itemArray.filter(item => item.status_id === 3);
     const doneItemArray = itemArray.filter(item => item.status_id === 4);
+    
     const backlogItemArrayCounter = backlogItemArray.length;
     const inReviewItemArrayCounter = inReviewItemArray.length;
     const inProgressItemArrayCounter = inProgressItemArray.length;
