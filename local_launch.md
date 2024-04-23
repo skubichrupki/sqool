@@ -11,16 +11,16 @@
     - cd to backend
       - npm install express cors
       - npm install mysql2 (MySQL) mssql (SQL Server)
-      - npm install nodemon cookie-parser jsonwebtoken
+      - npm install nodemon
 2. run frontend server
     - cd to mysql-app
     - npm run start (run node.js server on localhost:3000)
 3. run backend server
     - cd to backend
-    - npm run dev / npm run dev2 (run node.js server on localhost:5000(mysql) / localhost:5500(mssql))
+    - npm run dev / npm run dev2 (run node.js server on localhost:5000(mysql) / localhost:8000(mssql))
 4. run database server
     - run -> services.msc
-    - start mysql server on localhost:3306/mssql server on localhost:1433
+    - start mysql server on localhost:3306 / mssql server on localhost:1433
     - database scripts are in ./mysql-app/database/
 5. enjoy
 

@@ -65,6 +65,31 @@ app.post('/CreateUser', (req, res) => {
     });
 });
 
+// update ticket
+const update_query = `
+UPDATE item 
+SET item_number = ?, item_description = ?, status_id = ?, updated_on = now() 
+WHERE item_id = ?`;
+
+app.put('/', (req, res) => {
+    console.log(`got a PUT request for item: ${req.query.item_id}`);
+    const item_number = req.body.item_number;
+    const item_description = req.body.item_description;
+    const status_id = req.body.status_id;
+    const item_id = req.query.item_id;
+    const query = update_query;
+    const values = [item_number, item_description, status_id, item_id];
+    connection.query(query, values, (err, results) => {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        }
+        else {
+            res.send(`item_id ${item_id} data update success`);
+        }
+    })
+})
+
 
 
 
