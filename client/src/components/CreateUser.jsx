@@ -10,6 +10,16 @@ function CreateUser({label}) {
     const[input_values, setInputValues] = useState({});
     const[notification, setNotification] = useState('');
 
+    const handleChange = (event) => {
+        const input_name = event.target.name;
+        const input_value = event.target.value;
+       
+        // old object values turning into new with new key-value pairs
+        setInputValues((object_values) => {
+            return({...object_values, [input_name]: input_value})
+        });
+    }
+    
     async function handleSubmit (event) {
         event.preventDefault();
         console.log(input_values);
@@ -19,21 +29,8 @@ function CreateUser({label}) {
             setNotification(response.data);
         },(error) => {
             console.log(error);
+            setNotification(error.message);
         });
-    }
-
-    const handleChange = (event) => {
-        const input_name = event.target.name;
-        const input_value = event.target.value;
-       
-        // else if select
-        // old object values turning into new with new key-value pairs
-        setInputValues((object_values) => {
-            return({...object_values, [input_name]: input_value})
-        });
-        console.log(input_values);
-        console.log(event.target.value);
-        console.log(event.target.name);
     }
 
     return (

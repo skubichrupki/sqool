@@ -6,7 +6,7 @@ The second goal of this thesis is to explore why using SQL databases over spread
 
 - Tech Stack:
   - Frontend: React.js
-  - Backend: Express.js
+  - server: Express.js
   - Database: MySQL
 - Software:
   - VS Code

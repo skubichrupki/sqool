@@ -3,7 +3,7 @@ node --version: v18.18.0
 - install npm
 npm --version: 9.8.1
 
-npx create-react-app mysql-app
+npx create-react-app client
 
     npm run build
     Bundles the app into static files for production.
