@@ -26,9 +26,10 @@ connection.connect((error) => {
     error ? console.log(error) : null;
 });
 
-// get data from main table
 // / = http://localhost:5000/
 // express syntax: app.method(path, handler())
+
+// get data from main table
 app.get('/', (req, res) => {
     let query = queries.select_query;
     // check if item_id exists in request header
@@ -69,7 +70,8 @@ app.get('/table/:tableName', (req, res) => {
     })
 })
 
-app.post('/CreateUser', (req, res) => {
+// create ticket
+app.post('/item', (req, res) => {
     const query = queries.insert_query;
     console.log(req.body);
 
@@ -97,10 +99,11 @@ app.put('/', (req, res) => {
     const query = queries.update_query;
     console.log(`got a PUT request for item: ${req.query.item_id}`);
 
+    // get item_id from api query
+    const item_id = req.query.item_id;
     const item_number = req.body.item_number;
     const item_description = req.body.item_description;
     const status_id = req.body.status_id;
-    const item_id = req.query.item_id;
     const values = [item_number, item_description, status_id, item_id];
     
     connection.query(query, values, (err, results) => {

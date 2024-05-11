@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Table from "./Table";
 
-function SelectUser() {
+function SelectUser({port}) {
 
     // change user list state
     const[itemArray, setItemArray] = useState([]);
@@ -19,11 +19,11 @@ function SelectUser() {
 
     useEffect(function() {
         getItem();
-    }, []);
+    }, [port]);
 
     // get the reponse data
-    function getItem() {
-        axios.get('http://localhost:5000').then((response) => {
+    const getItem = () => {
+        axios.get(`http://localhost:${port}`).then((response) => {
             setItemArray(response.data);
         }, (error) => {
             console.log('axios.get response error: ' + error);

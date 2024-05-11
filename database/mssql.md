@@ -40,3 +40,13 @@ CREATE TABLE [dbo].[status] (
 INSERT INTO [dbo].[status] ([description])
 VALUES ('Backlog'), ('In Review'), ('In Progress'), ('Done');
 ```
+
+## Generate data
+```sql
+INSERT INTO react.dbo.item (item_number, item_description, item_type_id, supplier_id, country_origin_id, status_id)
+VALUES 
+('Item1', 'Description1', 1, 1, 1, 1),
+('Item2', 'Description2', 2, 2, 2, 2),
+('Item3', 'Description3', 3, 3, 3, 3),
+('Item4', 'Description4', 4, 4, 4, 4);
+```

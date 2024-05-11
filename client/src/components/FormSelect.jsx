@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
 
-const FormSelect = ({label, name, value, onChange, className, isRequired, tableName, keyColumn, valueColumn}) => {
+const FormSelect = ({label, name, value, onChange, className, isRequired, tableName, keyColumn, valueColumn, port}) => {
 
     const [options, setOptions] = useState([]);
 
+    // whenever the port changes, get the data from the table
     useEffect(() => {
-        axios.get(`http://localhost:5000/table/${tableName}`).then((response) => {
+        axios.get(`http://localhost:${port}/table/${tableName}`).then((response) => {
             setOptions(response.data);
         })
-    }, [])
+    }, [port])
 
     return (
         <div className={className}>

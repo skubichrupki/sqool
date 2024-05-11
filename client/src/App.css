@@ -215,6 +215,10 @@ button:hover {
   border: 1px solid #5882ad;
 }
 
+.button-back-container {
+  align-self: flex-end;
+}
+
 /* other */
 
 .boxxy {

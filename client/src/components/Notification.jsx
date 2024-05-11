@@ -1,14 +1,20 @@
+import { useState, useEffect } from 'react';
+
 const Notification = ({message, className}) => {
 
-    // hide notification
-    // const clearNotification = () => {
-    //     console.log('notification hide');
-    // }
+    const [isVisible, setIsVisible] = useState(true);
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setIsVisible(false);
+        }, 3000);
 
-    // hide notification after 2 seconds
-    // const timeout = setTimeout( () => {
-    //     clearNotification();
-    // }, 2000)
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (!isVisible) {
+        return null;
+      }
 
     return(
         <div className={className}>

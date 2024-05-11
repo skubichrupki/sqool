@@ -46,9 +46,11 @@ function UpdateUser({label}) {
                 <FormInput type="text" label="Item Description"  name="item_description" isRequired={true} onChange={handleChange} value={input_values['item_description']} className="input-wrapper"/>
                 <FormSelect label="Status" name="status_id" isRequired={true} onChange={handleChange} tableName="status" value={input_values['status_id']} keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>
-                <Link to={`/SelectUser`}>
-                    <Button text={"Back to list"}/>
-                </Link>
+                <div className="button-back-container">
+                    <Link to={`/SelectUser`}>
+                        <Button text={"Back to list"}/>
+                    </Link>
+                </div>
                 {/* notification after submit */}
                 {notification ? <Notification message={notification} className="boxxy notification"/> : null}
             </form>

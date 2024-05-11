@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon mysql.js",
-    "dev2": "nodemon sqlserver.js",
+    "dev2": "nodemon mssql.js",
     "start": "node mysql.js"
   },
   "author": "skubichrupki",

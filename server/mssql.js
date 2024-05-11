@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const sql = require('mssql');
+const queries = require('./mssql-queries');
 
 const app = express();
 const port = 8000;
@@ -26,32 +27,54 @@ sql.connect(config, (error) => {
     error ? console.log(error) : null;
 });
 
+// get data from main table
+app.get('/', async (req, res) => {
+    let query = queries.select_query;
+    const request = new sql.Request();
+    if (req.query.item_id) {
+        console.log(`got a GET request for item: ${req.query.item_id}`);
+        query += ` WHERE item_id = ${req.query.item_id} ORDER BY item_id desc`
+    }
+    else {
+        query += ` ORDER BY item_id DESC`
+    }
+    try {
+        const results = await request.query(query);
+        res.json(results.recordset);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({error: error})
+    }
+
+});
+
 // get data from tables for selects in form
 app.get('/table/:tableName', async (req, res) => {
     const tableName = req.params.tableName;
-    // const query = `SELECT * FROM ${tableName}`
-    const query = `SELECT * FROM status`
+    const query = `SELECT * FROM ${tableName}`
     const request = new sql.Request();
-    const results = await request.query(query);
-    console.log(results)
-    res.json(results.recordset);
+    try {
+        const results = await request.query(query);
+        console.log(results)
+        res.json(results.recordset);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({error: error})
+    }
+
 });
 
-// TO DO:
-
-// create ticket
-const insert_query = `
-INSERT INTO item (item_number, item_description, status_id) 
-VALUES (?,?,?)`;
-
-app.post('/CreateUser', (req, res) => {
+// create ticket - to do
+app.post('/item', (req, res) => {
+    const query = queries.insert_query;
     console.log(req.body);
     // get json values from post request body
     //const {name, email} = req.body;
     const item_number = req.body.item_number;
     const item_description = req.body.item_description;
     const status_id = req.body.status_id;
-    const query = insert_query;
     const values = [item_number, item_description, status_id];
     // execute query
     connection.query(query, values, (err, results) => {
@@ -66,19 +89,21 @@ app.post('/CreateUser', (req, res) => {
 });
 
 // update ticket
-const update_query = `
-UPDATE item 
-SET item_number = ?, item_description = ?, status_id = ?, updated_on = now() 
-WHERE item_id = ?`;
-
 app.put('/', (req, res) => {
+    const query = queries.update_query;
     console.log(`got a PUT request for item: ${req.query.item_id}`);
+
     const item_number = req.body.item_number;
     const item_description = req.body.item_description;
     const status_id = req.body.status_id;
     const item_id = req.query.item_id;
-    const query = update_query;
-    const values = [item_number, item_description, status_id, item_id];
+    const values = {
+        item_number: item_number,
+        item_description: item_description,
+        status_id: status_id,
+        item_id: item_id
+        };
+
     connection.query(query, values, (err, results) => {
         if (err) {
             console.log(err);
