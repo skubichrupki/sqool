@@ -27,7 +27,7 @@ sql.connect(config, (error) => {
     error ? console.log(error) : null;
 });
 
-// get data from main table
+// get data from main table - done
 app.get('/', async (req, res) => {
     let query = queries.select_query;
     const request = new sql.Request();
@@ -49,7 +49,7 @@ app.get('/', async (req, res) => {
 
 });
 
-// get data from tables for selects in form
+// get data from tables for selects in form - done
 app.get('/table/:tableName', async (req, res) => {
     const tableName = req.params.tableName;
     const query = `SELECT * FROM ${tableName}`
@@ -88,7 +88,7 @@ app.post('/item', (req, res) => {
     });
 });
 
-// update ticket
+// update ticket - to do
 app.put('/', (req, res) => {
     const query = queries.update_query;
     console.log(`got a PUT request for item: ${req.query.item_id}`);
@@ -113,8 +113,4 @@ app.put('/', (req, res) => {
             res.send(`item_id ${item_id} data update success`);
         }
     })
-})
-
-
-
-
+});
