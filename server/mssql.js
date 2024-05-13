@@ -51,8 +51,8 @@ app.get('/', async (req, res) => {
 
 // get data from tables for selects in form - done
 app.get('/table/:tableName', async (req, res) => {
-    const tableName = req.params.tableName;
     const query = `SELECT * FROM ${tableName}`
+    const tableName = req.params.tableName;
     const request = new sql.Request();
     try {
         const results = await request.query(query);
@@ -66,8 +66,8 @@ app.get('/table/:tableName', async (req, res) => {
 
 });
 
-// create ticket - to do
-app.post('/item', (req, res) => {
+// create ticket - done
+app.post('/item', async (req, res) => {
     const query = queries.insert_query;
     console.log(req.body);
     // get json values from post request body
@@ -76,20 +76,20 @@ app.post('/item', (req, res) => {
     const item_description = req.body.item_description;
     const status_id = req.body.status_id;
     const values = [item_number, item_description, status_id];
-    // execute query
-    connection.query(query, values, (err, results) => {
-        if (err) {
-            console.log(err)
-            res.send('data insert fail: ' + err);
-        }
-        else {
-            res.send(`item with item_number ${item_number} was created`);
-        }
-    });
+
+    const request = new sql.Request();
+    try {
+        const results = await request.query(query);
+        res.send(`item ${item_number} was created`);
+    }
+    catch(error) {
+        console.log(error);
+        res.status(500).json({error: error})
+    }
 });
 
-// update ticket - to do
-app.put('/', (req, res) => {
+// update ticket - done?
+app.put('/', async (req, res) => {
     const query = queries.update_query;
     console.log(`got a PUT request for item: ${req.query.item_id}`);
 
@@ -97,20 +97,20 @@ app.put('/', (req, res) => {
     const item_description = req.body.item_description;
     const status_id = req.body.status_id;
     const item_id = req.query.item_id;
-    const values = {
-        item_number: item_number,
-        item_description: item_description,
-        status_id: status_id,
-        item_id: item_id
-        };
 
-    connection.query(query, values, (err, results) => {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        }
-        else {
-            res.send(`item_id ${item_id} data update success`);
-        }
-    })
+    const request = new sql.Request();
+
+    request.input('item_number', sql.Int, item_number);
+    request.input('item_description', sql.NVarChar, item_description);
+    request.input('status_id', sql.Int, status_id);
+    request.input('item_id', sql.Int, item_id);
+
+    try {
+        const results = await request.query(query);
+        res.status(201).send(`item ${item_number} was updated`);
+    }
+    catch(error) {
+        console.log(error);
+        res.status(500).json({error: error})
+    }
 });

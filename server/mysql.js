@@ -89,7 +89,7 @@ app.post('/item', (req, res) => {
             res.send(err);
         }
         else {
-            res.send(`item with item_number ${item_number} was created`);
+            res.send(`item ${item_number} was created`);
         }
     });
 });
@@ -112,7 +112,7 @@ app.put('/', (req, res) => {
             res.send(err);
         }
         else {
-            res.send(`item_id ${item_id} data update success`);
+            res.send(`item ${item_number} was updated`);
         }
     })
 })
