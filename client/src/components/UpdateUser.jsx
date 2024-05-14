@@ -1,24 +1,30 @@
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import FormInput from "./FormInput";
-import FormSelect from "./FormSelect";
-import Button from "./Button";
-import Notification from "./Notification";
+import FormInput from "./ui/FormInput";
+import FormSelect from "./ui/FormSelect";
+import Button from "./ui/Button";
+import Notification from "./ui/Notification";
 
-function UpdateUser({label}) {
+function UpdateUser({port, label}) {
 
     // get item_id value from "http://localhost:3000/UpdateUser/:item_id"
     const {item_id} = useParams();
-    const[input_values, setInputValues] = useState({item_number:'', item_description:'', status_id:''});
-    // like ready() or document load
-    useEffect(getItem, [item_id]);
-    const [notification, setNotification] = useState('');
 
-    function getItem() {
-        axios.get(`http://localhost:5000?item_id=${item_id}`).then((response) => {
-            // console.log(response.data[0]);
+    const [notification, setNotification] = useState('');
+    const[input_values, setInputValues] = useState({item_number:'', item_description:'', status_id:''});
+    
+    // like ready() or document load
+    useEffect(() => {
+        getItem();
+    }, [item_id, port]);
+
+    const getItem = () => {
+        axios.get(`http://localhost:${port}?item_id=${item_id}`).then((response) => {
             setInputValues(response.data[0]);
+            console.log(response.data[0]);
+        }, (error) => {
+            console.log('axios.get response error: ' + error);
         });
     } 
 
@@ -26,7 +32,7 @@ function UpdateUser({label}) {
         event.preventDefault();
         // console.log(input_values);
         // put is used to overwrite the data
-        axios.put(`http://localhost:5000?item_id=${item_id}`, input_values).then((response) => {
+        axios.put(`http://localhost:${port}?item_id=${item_id}`, input_values).then((response) => {
             // navigate('/SelectUser');
             setNotification(response.data);
         });
@@ -44,7 +50,7 @@ function UpdateUser({label}) {
                 {label} {item_id}
                 <FormInput type="text" label="Item Number" name="item_number" isRequired={true} onChange={handleChange} value={input_values['item_number']} className="input-wrapper"/>
                 <FormInput type="text" label="Item Description"  name="item_description" isRequired={true} onChange={handleChange} value={input_values['item_description']} className="input-wrapper"/>
-                <FormSelect label="Status" name="status_id" isRequired={true} onChange={handleChange} tableName="status" value={input_values['status_id']} keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
+                <FormSelect port={port} label="Status" name="status_id" isRequired={true} onChange={handleChange} tableName="status" value={input_values['status_id']} keyColumn="status_id" valueColumn="description" className="input-wrapper"/>
                 <Button type="submit" text="Submit"/>
                 <div className="button-back-container">
                     <Link to={`/SelectUser`}>

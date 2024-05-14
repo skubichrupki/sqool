@@ -5,12 +5,19 @@ const FormSelect = ({label, name, value, onChange, className, isRequired, tableN
 
     const [options, setOptions] = useState([]);
 
+    useEffect(function() {
+        getItem();
+    }, [port]);
+
     // whenever the port changes, get the data from the table
-    useEffect(() => {
+    const getItem = () => {
         axios.get(`http://localhost:${port}/table/${tableName}`).then((response) => {
             setOptions(response.data);
+            console.log(response.data);
+        }, (error) => {
+            console.log('axios.get response error: ' + error);
         })
-    }, [port])
+    }
 
     return (
         <div className={className}>

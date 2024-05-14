@@ -1,11 +1,11 @@
-import FormInput from "./FormInput";
-import FormSelect from "./FormSelect";
+import FormInput from "./ui/FormInput";
+import FormSelect from "./ui/FormSelect";
 import { useState } from "react";
 import axios from 'axios';
-import Button from "./Button";
-import Notification from "./Notification";
+import Button from "./ui/Button";
+import Notification from "./ui/Notification";
 
-function CreateUser({label, port}) {
+function CreateUser({ port, label }) {
 
     const[input_values, setInputValues] = useState({item_number: '', item_description: ''});
     const[notification, setNotification] = useState('');

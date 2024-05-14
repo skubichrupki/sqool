@@ -33,7 +33,8 @@ app.get('/', async (req, res) => {
     const request = new sql.Request();
     if (req.query.item_id) {
         console.log(`got a GET request for item: ${req.query.item_id}`);
-        query += ` WHERE item_id = ${req.query.item_id} ORDER BY item_id desc`
+        request.input('item_id', sql.Int, req.query.item_id);
+        query += ` WHERE item_id = @item_id ORDER BY item_id desc`
     }
     else {
         query += ` ORDER BY item_id DESC`
@@ -51,8 +52,8 @@ app.get('/', async (req, res) => {
 
 // get data from tables for selects in form - done
 app.get('/table/:tableName', async (req, res) => {
-    const query = `SELECT * FROM ${tableName}`
     const tableName = req.params.tableName;
+    const query = `SELECT * FROM ${tableName}`
     const request = new sql.Request();
     try {
         const results = await request.query(query);
@@ -63,23 +64,27 @@ app.get('/table/:tableName', async (req, res) => {
         console.log(error);
         res.status(500).json({error: error})
     }
-
 });
 
 // create ticket - done
 app.post('/item', async (req, res) => {
     const query = queries.insert_query;
     console.log(req.body);
+
     // get json values from post request body
     //const {name, email} = req.body;
     const item_number = req.body.item_number;
     const item_description = req.body.item_description;
     const status_id = req.body.status_id;
-    const values = [item_number, item_description, status_id];
 
     const request = new sql.Request();
+    // pass values to query
+    request.input('item_number', sql.Int, item_number);
+    request.input('item_description', sql.NVarChar, item_description);
+    request.input('status_id', sql.Int, status_id);
+
     try {
-        const results = await request.query(query);
+        await request.query(query);
         res.send(`item ${item_number} was created`);
     }
     catch(error) {
@@ -106,7 +111,7 @@ app.put('/', async (req, res) => {
     request.input('item_id', sql.Int, item_id);
 
     try {
-        const results = await request.query(query);
+        await request.query(query);
         res.status(201).send(`item ${item_number} was updated`);
     }
     catch(error) {

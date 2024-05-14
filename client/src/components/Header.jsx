@@ -15,8 +15,13 @@ function Header({ port, database, togglePort }) {
                             Create Item
                         </Link>
                     </li>
+                    <li className='port'>
+                        <p>Port: {port}, Database: {database}</p>
+                        <button onClick={togglePort}>Toggle Port</button>
+                    </li>
                 </ul>
             </nav>
+
         </header>
     );
 }

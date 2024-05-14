@@ -1,18 +1,18 @@
 # SQL Server Database scripts
 
-## Create database
+ Create database
 ```sql
 CREATE DATABASE [react];
 ```
 
-## Create user for application
+ Create user for application
 ```sql
 CREATE LOGIN [test_user] WITH PASSWORD = 'test_user';
 CREATE USER [test_user] FOR LOGIN [test_user];
 ALTER ROLE [db_owner] ADD MEMBER [test_user];
 ```
 
-## Create item table
+ Create item table
 ```sql
 CREATE TABLE [dbo].[item] (
     [item_id] INT IDENTITY(1,1) PRIMARY KEY,
@@ -27,7 +27,7 @@ CREATE TABLE [dbo].[item] (
 );
 ```
 
-## Create status table
+ Create status table
 ```sql
 CREATE TABLE [dbo].[status] (
     [status_id] INT IDENTITY(1,1) PRIMARY KEY,
@@ -35,13 +35,13 @@ CREATE TABLE [dbo].[status] (
 );
 ```
 
-## Insert data into status table
+ Insert data into status table
 ```sql
 INSERT INTO [dbo].[status] ([description])
 VALUES ('Backlog'), ('In Review'), ('In Progress'), ('Done');
 ```
 
-## Generate data
+ Generate data
 ```sql
 INSERT INTO react.dbo.item (item_number, item_description, item_type_id, supplier_id, country_origin_id, status_id)
 VALUES 

@@ -1,18 +1,18 @@
 # MySQL Database scripts
 
-### create database
+# create database
 ```sql
 CREATE DATABASE react;
 ```
 
-### create user for application
+# create user for application
 ```sql
 CREATE USER 'test_user'@'localhost' IDENTIFIED BY 'test_user';
 GRANT ALL PRIVILEGES ON *.* TO 'test_user'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-### create item table
+# create item table
 ```sql
 CREATE TABLE `item` (
 `item_id` int NOT NULL AUTO_INCREMENT,
@@ -28,9 +28,9 @@ PRIMARY KEY (`item_id`)
 ) 
 ```
 
-## select fields tables
+ select fields tables
 
-### create status table
+# create status table
 ```sql
 CREATE TABLE `status` (
 `status_id` int NOT NULL AUTO_INCREMENT,

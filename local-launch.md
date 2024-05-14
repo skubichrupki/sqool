@@ -1,4 +1,4 @@
-### launch project locally:
+# launch project locally:
 
 - requirements: git, node.js, mysql server, sql server
 - clone https://github.com/skubichrupki/sqool
