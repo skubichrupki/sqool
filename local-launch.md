@@ -21,7 +21,7 @@
     - run -> services.msc -> mysql80 (windows)
     - run SQL server configurator manager
     - start mysql server on localhost:3306 / mssql server on localhost:1433
-    - database scripts are in ./client/database
+    - database scripts are in ./database
 5. enjoy
 
 
